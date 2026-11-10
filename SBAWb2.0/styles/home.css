@@ -1,0 +1,651 @@
+/* Southland College - School of Business and Accountancy (SBA)
+   Home page: hero, stat cards, featured program cards (.dcard), promo video, hero buttons. */
+
+/* Hero Section */
+.hero {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 32px;
+    align-items: center;
+    padding: 56px 0 40px;
+}
+
+.hero-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    /* Royal Blue to Gold Gradient Border */
+    border: 3px solid transparent;
+    background: linear-gradient(white, white) padding-box, linear-gradient(135deg, #4169E1, #FFD700) border-box;
+}
+
+.hero-image:hover {
+    transform: scale(1.01);
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* Stat Cards */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 48px;
+    border: var(--ink);
+}
+
+.stat {
+    background: var(--primary-gradient);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: var(--ink);
+}
+
+.stat:hover {
+    transform: translateY(-4px);
+}
+
+.stat b {
+    display: block;
+    font-size: 30px;
+}
+
+.stat span {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Program Cards */
+.dcard {
+    background: var(--primary-gradient);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 24px;
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dcard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(36, 48, 150, 0.2);
+}
+
+.dcard:nth-child(1) {
+    background: var(--surface);
+    color: var(--ink);
+    border: 2px solid var(--primary-color);
+}
+
+.dcard:nth-child(1) p {
+    color: var(--mute);
+}
+
+.dcard:nth-child(1) a {
+    color: var(--primary-color);
+}
+
+.dcard:nth-child(2) {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.dcard p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.dcard a {
+    font-size: 13px;
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+
+/* Promotional Video Container */
+.video-container {
+    width: 100%;
+    max-width: 1100px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 8px 24px rgba(36, 48, 150, 0.15);
+    background: #000000;
+}
+
+/* Video Sizing */
+.video-container video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* Responsive Video */
+@media (max-width: 768px) {
+    .video-container {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+}
+
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 760px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Stat Box Background & Border */
+.stats .stat {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Stat Numbers (e.g., 98%, 100%) */
+.stats .stat b {
+    color: #2563eb !important;
+    /* Bright royal blue */
+}
+
+/* Stat Labels (e.g., CPA Board Exam Rate) */
+.stats .stat span {
+    color: #475569 !important;
+    /* Muted slate gray */
+}
+
+/* Base Card Style */
+.grid3 .dcard {
+    background-color: #ffffff !important;
+    border: 1px solid #f1f5f9 !important;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    color: #0f172a !important;
+}
+
+/* Icon Box Background & Color */
+.grid3 .dcard-icon {
+    background-color: #fef3c7 !important;
+    /* Soft yellow icon box */
+    color: #d97706 !important;
+    /* Gold icon color */
+}
+
+/* Text Colors inside Cards */
+.grid3 .dcard h3 {
+    color: #0f172a !important;
+}
+
+.grid3 .dcard p {
+    color: #475569 !important;
+}
+
+/* Bottom Explore Link */
+.grid3 .dcard a {
+    color: #2563eb !important;
+}
+
+/* =========================================================
+   HOMEPAGE: STATS & FEATURED CARDS (CONTRAST FIXES)
+   ========================================================= */
+/* 1. Fix Stats Cards (Row 1) */
+.stats .stat,
+.stat-card {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 12px !important;
+}
+
+/* Stat Numbers (98%, 100%, 435, 16) */
+.stats .stat b,
+.stat-card .stat-number {
+    color: #2563eb !important;
+    /* High-contrast bright blue */
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    display: block !important;
+}
+
+/* Stat Labels */
+.stats .stat span,
+.stat-card .stat-label {
+    color: #475569 !important;
+    /* Clear slate gray */
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+}
+
+/* 2. Fix Featured Academic Program Cards (Row 2) */
+.grid3 .dcard {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 18px !important;
+    color: #0f172a !important;
+}
+
+/* Uniform Yellow/Gold Icon Box for all 3 cards */
+.grid3 .dcard .dcard-icon,
+.grid3 .dcard>div:first-child {
+    background-color: #fef3c7 !important;
+    /* Soft yellow background */
+    color: #d97706 !important;
+    /* Accent gold icon color */
+}
+
+/* Card Headings */
+.grid3 .dcard h3 {
+    color: #0f172a !important;
+    /* Dark slate text */
+    font-weight: 800 !important;
+}
+
+/* Card Body Text */
+.grid3 .dcard p {
+    color: #475569 !important;
+    /* Visible slate gray */
+}
+
+/* Card Footer Link */
+.grid3 .dcard a,
+.grid3 .dcard-footer a {
+    color: #2563eb !important;
+    /* Bright royal blue */
+    font-weight: 700 !important;
+}
+
+/* White Card Style for Stats */
+.stats .stat {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+.stats .stat b {
+    color: #2563eb !important;
+    /* Bright Royal Blue numbers */
+}
+
+.stats .stat span {
+    color: #475569 !important;
+    /* Dark slate gray text */
+}
+
+/* Force all Featured Academic Program cards to white background */
+.dcard,
+.grid3 .dcard,
+.dcard:nth-child(3) {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05) !important;
+    color: #0f172a !important;
+}
+
+/* Fix text colors inside the card */
+.dcard:nth-child(3) h3 {
+    color: #0f172a !important;
+}
+
+.dcard:nth-child(3) p {
+    color: #475569 !important;
+}
+
+.dcard:nth-child(3) a {
+    color: #2563eb !important;
+}
+
+/* Force Stats Containers to White Card Aesthetic */
+.stats .stat,
+.stats>div,
+.stat-card {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Stat Numbers (98%, 100%, 435, 16) */
+.stats .stat b,
+.stats>div b,
+.stat-card b,
+.stat-number {
+    color: #2563eb !important;
+    /* Bold Royal Blue */
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    display: block !important;
+}
+
+/* Stat Labels under the numbers */
+.stats .stat span,
+.stats>div span,
+.stat-card span,
+.stat-label {
+    color: #475569 !important;
+    /* Visible Slate Gray */
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+}
+
+/* Dark Theme Override for Stats Cards */
+body.dark-theme .stats .stat,
+body.dark-theme .stats>div,
+body.dark-theme .stat-card,
+[data-theme="dark"] .stats .stat,
+[data-theme="dark"] .stats>div,
+[data-theme="dark"] .stat-card {
+    background: #1e293b !important;
+    /* Deep navy blue card background */
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    /* Subtle slate border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Stat Numbers in Dark Mode */
+body.dark-theme .stats .stat b,
+body.dark-theme .stats>div b,
+body.dark-theme .stat-card b,
+body.dark-theme .stat-number,
+[data-theme="dark"] .stats .stat b,
+[data-theme="dark"] .stats>div b,
+[data-theme="dark"] .stat-card b,
+[data-theme="dark"] .stat-number {
+    color: #60a5fa !important;
+    /* Vibrant light royal blue */
+}
+
+/* Stat Labels in Dark Mode */
+body.dark-theme .stats .stat span,
+body.dark-theme .stats>div span,
+body.dark-theme .stat-card span,
+body.dark-theme .stat-label,
+[data-theme="dark"] .stats .stat span,
+[data-theme="dark"] .stats>div span,
+[data-theme="dark"] .stat-card span,
+[data-theme="dark"] .stat-label {
+    color: #94a3b8 !important;
+    /* Soft light gray text */
+}
+
+/* Dark Theme Override for Featured Academic Program Cards */
+body.dark-theme .dcard,
+body.dark-theme .grid3 .dcard,
+[data-theme="dark"] .dcard,
+[data-theme="dark"] .grid3 .dcard {
+    background-color: #1e293b !important;
+    /* Deep navy blue card background */
+    border-color: #334155 !important;
+    /* Slate border */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Card Headings in Dark Mode */
+body.dark-theme .dcard h3,
+[data-theme="dark"] .dcard h3 {
+    color: #f8fafc !important;
+    /* Crisp off-white */
+}
+
+/* Paragraph Body Text in Dark Mode */
+body.dark-theme .dcard p,
+[data-theme="dark"] .dcard p {
+    color: #94a3b8 !important;
+    /* Muted light gray */
+}
+
+/* Explore Links in Dark Mode */
+body.dark-theme .dcard a,
+[data-theme="dark"] .dcard a {
+    color: #60a5fa !important;
+    /* Vibrant light royal blue */
+}
+
+/* Icon Box Background in Dark Mode */
+body.dark-theme .dcard-icon,
+body.dark-theme .dcard>div:first-child,
+[data-theme="dark"] .dcard-icon,
+[data-theme="dark"] .dcard>div:first-child {
+    background-color: rgba(245, 158, 11, 0.15) !important;
+    /* Subtle semi-transparent gold glow */
+    color: #fbbf24 !important;
+    /* Bright gold icon */
+}
+
+/* =========================================================
+   FEATURED PROGRAM CARDS (.dcard): LIGHT & DARK MODE
+   ========================================================= */
+/* --- Base Card Container --- */
+.dcard,
+.grid3 .dcard {
+    border-radius: 16px !important;
+    padding: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.grid3 .dcard:hover {
+    transform: translateY(-4px) !important;
+}
+
+/* --- Icon Box (Rounded Square) --- */
+.dcard-icon,
+.dcard>div:first-child {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 16px !important;
+}
+
+/* --- Card Typography & Headings --- */
+.dcard h3 {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 12px !important;
+}
+
+.dcard p {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 24px !important;
+}
+
+/* --- Footer Link with Divider Line --- */
+.dcard a,
+.dcard-footer a {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-top: 16px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    width: 100% !important;
+}
+
+/* --- 1. LIGHT MODE CARDS (Top Row) --- */
+body:not(.dark-theme) .dcard,
+body:not(.dark-theme) .grid3 .dcard {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+body:not(.dark-theme) .dcard-icon,
+body:not(.dark-theme) .dcard>div:first-child {
+    background-color: #fef3c7 !important;
+    /* Soft yellow background */
+    color: #d97706 !important;
+    /* Gold icon color */
+}
+
+body:not(.dark-theme) .dcard h3 {
+    color: #0f172a !important;
+    /* Dark text */
+}
+
+body:not(.dark-theme) .dcard p {
+    color: #475569 !important;
+    /* Slate gray text */
+}
+
+body:not(.dark-theme) .dcard a,
+body:not(.dark-theme) .dcard-footer a {
+    color: #4054F5 !important;
+    /* Royal blue link */
+    border-top: 1px solid #e2e8f0 !important;
+    /* Divider line above link */
+}
+
+/* --- 2. DARK MODE CARDS (Bottom Row) --- */
+body.dark-theme .dcard,
+body.dark-theme .grid3 .dcard,
+[data-theme="dark"] .dcard,
+[data-theme="dark"] .grid3 .dcard {
+    background-color: #2563eb !important;
+    /* Solid Vibrant Blue Fill */
+    border: 1px solid #3b82f6 !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+body.dark-theme .dcard-icon,
+body.dark-theme .dcard>div:first-child,
+[data-theme="dark"] .dcard-icon,
+[data-theme="dark"] .dcard>div:first-child {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    /* Semi-transparent white box */
+    color: #ffffff !important;
+    /* Pure white icon */
+}
+
+body.dark-theme .dcard h3,
+body.dark-theme .dcard p,
+[data-theme="dark"] .dcard h3,
+[data-theme="dark"] .dcard p {
+    color: #ffffff !important;
+    /* All text crisp white */
+}
+
+body.dark-theme .dcard a,
+body.dark-theme .dcard-footer a,
+[data-theme="dark"] .dcard a,
+[data-theme="dark"] .dcard-footer a {
+    color: #ffffff !important;
+    /* White link and arrow */
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+    /* White divider line */
+}
+
+/* =========================================================
+   HERO BUTTONS STYLING
+   ========================================================= */
+/* 1. Explore More (Primary Button) */
+.btn-primary,
+.hero-btns a:first-child,
+.hero .btn:first-child {
+    background-color: #ed5407 !important;
+    /* Royal Blue */
+    background-image: none !important;
+    color: #ffffff !important;
+    border: 1px solid #f35207 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+}
+
+.btn-primary:hover,
+.hero-btns a:first-child:hover,
+.hero .btn:first-child:hover {
+    background-color: #fa7304 !important;
+}
+
+/* 2. Enroll Now (Secondary Button - Light Mode) */
+body:not(.dark-theme) .btn-secondary,
+body:not(.dark-theme) .btn-orange,
+body:not(.dark-theme) .hero-btns a:last-child,
+body:not(.dark-theme) .hero .btn:last-child {
+    background-color: #ffffff !important;
+    /* Vibrant Orange */
+    background-image: none !important;
+    color: #000000 !important;
+    border: 1px solid #ea580c !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+}
+
+body:not(.dark-theme) .btn-secondary:hover,
+body:not(.dark-theme) .btn-orange:hover,
+body:not(.dark-theme) .hero-btns a:last-child:hover,
+body:not(.dark-theme) .hero .btn:last-child:hover {
+    background-color: #c2410c !important;
+}
+
+/* 3. Enroll Now (Secondary Button - Dark Mode) */
+body.dark-theme .btn-secondary,
+body.dark-theme .btn-orange,
+body.dark-theme .hero-btns a:last-child,
+body.dark-theme .hero .btn:last-child,
+[data-theme="dark"] .btn-secondary,
+[data-theme="dark"] .btn-orange,
+[data-theme="dark"] .hero-btns a:last-child,
+[data-theme="dark"] .hero .btn:last-child {
+    background-color: #2563eb !important;
+    /* Royal Blue override for Dark Mode */
+    background-image: none !important;
+    color: #ffffff !important;
+    border: 1px solid #3b82f6 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 1100px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 8px 24px rgba(36, 48, 150, 0.15);
+    background: #000;
+}
+
+.video-container video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+

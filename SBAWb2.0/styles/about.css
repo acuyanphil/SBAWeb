@@ -1,0 +1,578 @@
+/* Southland College - School of Business and Accountancy (SBA)
+   About page: vision & mission, graduate attributes, PEO, history timeline, faculty & staff, accreditation, FAQ grid. */
+
+/* EQUAL SIZE VISION AND MISSION CARDS */
+.two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 18px;
+    align-items: stretch;
+}
+
+/* Make the four cards direct grid items */
+.two>div {
+    display: contents;
+}
+
+/* Equal card dimensions */
+.two .card {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    box-sizing: border-box;
+    margin-bottom: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .two {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* History Timeline */
+.timeline {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 10px 20px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+/* Faculty & Staff ID Card Grid */
+.faculty-grid-leader {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 280px);
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Card Container */
+.faculty-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: linear-gradient(135deg, #4169E1, #abaaa8) border-box;
+    /* Soft drop shadow around cards */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Optional hover effect matching modern UI standards */
+.faculty-card:hover {
+    transform: translateY(-2px);
+    box-shadow: linear-gradient(135deg, #4169E1, #FFD700) border-box;
+}
+
+/* Circular Image Holder */
+.faculty-card .ph {
+    width: 140px;
+    /* Fixed circle width */
+    height: 120px;
+    /* Matching fixed circle height */
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    /* Creates the circular frame */
+    overflow: hidden;
+    margin-bottom: 16px;
+    /* Space between circle and name */
+    background-color: #e5e7eb;
+    /* Soft grey background for avatar fallback */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--primary-color);
+}
+
+/* Image inside circle */
+.faculty-card .ph img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Text Formatting */
+.faculty-card h3,
+.faculty-card .name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0c3794;
+    margin: 0 0 4px 0;
+    padding: 0 24px;
+}
+
+.faculty-card p,
+.faculty-card .position {
+    font-size: 0.875rem;
+    color: #3667ac;
+    margin: 0 0 2px 0;
+    padding: 0 24px;
+}
+
+.faculty-card .profession {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin: 0;
+    padding: 0 24px;
+}
+
+.faculty-card b {
+    display: block;
+    font-size: 14px;
+    color: #0c3794;
+    margin-top: 2px;
+    padding: 0 24px;
+}
+
+.faculty-card span {
+    display: block;
+    font-size: 12px;
+    color: rgba(12, 55, 148, 0.85);
+    padding: 0 24px;
+}
+
+@media (max-width: 760px) {
+    .two {
+        grid-template-columns: 1fr;
+    }
+    .faculty-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================================================
+   ABOUT PAGE GENERAL LAYOUT
+   ========================================================= */
+.section-center-heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 2rem;
+}
+
+/* 1. Vision & Mission + Graduate Attributes Grid */
+.about-top-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1.2fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.vm-block {
+    margin-bottom: 2rem;
+}
+
+.vm-block h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.vm-block p {
+    font-size: 0.925rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.mission-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mission-list li {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.55;
+    margin-bottom: 0.75rem;
+}
+
+/* Graduate Attributes List */
+.attributes-col h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 1.25rem;
+}
+
+.attributes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.attribute-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.attr-icon {
+    width: 42px;
+    height: 42px;
+    background-color: #fef3c7;
+    /* Gold pastel background */
+    color: #d97706;
+    /* Accent gold color */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* 2. Program Educational Objectives (PEO) */
+.peo-section {
+    margin-bottom: 4rem;
+}
+
+.peo-section h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+
+.peo-list {
+    padding-left: 1.2rem;
+}
+
+.peo-list li {
+    font-size: 0.875rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 0.65rem;
+}
+
+/* 3. Department Staff Cards */
+.staff-section {
+    margin-bottom: 4rem;
+}
+
+.staff-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.staff-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    padding: 1.5rem;
+    width: 220px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.staff-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 2px solid #3b82f6;
+}
+
+.staff-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.staff-card h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.25rem;
+    line-height: 1.25;
+}
+
+.staff-card p {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* 4. Accreditation Certificate */
+.accreditation-section {
+    margin-bottom: 4rem;
+}
+
+.accreditation-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    padding: 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.accreditation-card h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+}
+
+.accreditation-card p {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+
+.btn-certificate {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-certificate:hover {
+    background-color: #2563eb;
+}
+
+/* 5. Frequently Asked Questions (FAQ) Grid */
+.faq-section {
+    margin-bottom: 4rem;
+    padding: 200px;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    align-items: start !important;
+    grid-auto-rows: auto !important;
+}
+
+.faq-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    align-self: start !important;
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+.faq-card summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+}
+
+.faq-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-arrow {
+    color: #64748b;
+    font-size: 0.75rem;
+    margin-left: 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+.faq-card[open] .faq-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-card p {
+    font-size: 0.78rem;
+    color: #334155;
+    line-height: 1.45;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed #e2e8f0;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+    .about-top-grid,
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dark Mode Fix - ONLY for the About Page */
+body.dark-theme #about h1,
+body.dark-theme #about h2,
+body.dark-theme #about .vm-block h2,
+body.dark-theme #about .attributes-col h2,
+body.dark-theme #about .peo-section h2,
+body.dark-theme #about .section-center-heading {
+    color: #3D50FC !important;
+}
+
+body.dark-theme #about .eyebrow,
+body.dark-theme #about .vm-block p,
+body.dark-theme #about .mission-list li,
+body.dark-theme #about .peo-list li {
+    color: #cbd5e1 !important;
+}
+
+body.dark-theme #about .mission-list li strong,
+body.dark-theme #about .attribute-item span {
+    color: #f8fafc !important;
+}
+
+/* =========================================================
+   GRADUATE ATTRIBUTES ICON BOXES COLOR OVERRIDE
+   ========================================================= */
+/* 1. Light Mode: Soft Orange Box with Darker Orange Icon */
+body:not(.dark-theme) .attribute-item .icon-box,
+body:not(.dark-theme) .attributes-col .icon-box,
+body:not(.dark-theme) #about .attribute-item>div:first-child {
+    background-color: #ffedd5 !important;
+    /* Soft light orange background */
+    color: #ea580c !important;
+    /* Rich orange icon color */
+    border-radius: 12px !important;
+}
+
+/* 2. Dark Mode: Royal Blue Box with White Icon */
+body.dark-theme .attribute-item .icon-box,
+body.dark-theme .attributes-col .icon-box,
+body.dark-theme #about .attribute-item>div:first-child,
+[data-theme="dark"] .attribute-item .icon-box,
+[data-theme="dark"] .attributes-col .icon-box,
+[data-theme="dark"] #about .attribute-item>div:first-child {
+    background-color: #4054F5 !important;
+    /* Royal Blue background */
+    color: #ffffff !important;
+    /* Pure white icon color */
+    border-radius: 12px !important;
+}
+/* CERTIFICATE FLOATING MODAL */
+#cert-modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 99999 !important;
+    display: none !important;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.75);
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+#cert-modal.open {
+    display: flex !important;
+}
+
+#cert-modal .cert-modal-content {
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+    max-height: 90vh;
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+#cert-modal .cert-modal-img {
+    display: block;
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+#cert-modal .cert-modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    z-index: 1;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+#cert-modal .cert-modal-close:hover {
+    background: #c9a227;
+}

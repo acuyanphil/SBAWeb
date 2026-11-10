@@ -1,0 +1,276 @@
+/* Southland College - School of Business and Accountancy (SBA)
+   Organizations page: org cards and "Learn More" buttons, page height fix. */
+
+.org-card .ph {
+    width: 140px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin: 0 auto 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.org-card .ph img {
+    width: 120%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* =========================================================
+   ORGANIZATIONS "LEARN MORE" GREY BUTTON OVERRIDE
+   ========================================================= */
+/* Light Mode: Slate Grey Button */
+body:not(.dark-theme) .org-card .btn-primary,
+body:not(.dark-theme) #organizations .btn-primary,
+body:not(.dark-theme) .org-card a.btn {
+    background-color: #3D50FC !important;
+    /* Cool slate grey */
+    background-image: none !important;
+    color: #ffffff !important;
+    border: 1px solid #00040a !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    transition: background-color 0.2s ease !important;
+}
+
+body:not(.dark-theme) .org-card .btn-primary:hover,
+body:not(.dark-theme) #organizations .btn-primary:hover,
+body:not(.dark-theme) .org-card a.btn:hover {
+    background-color: #475569 !important;
+    /* Darker slate grey on hover */
+    border-color: #475569 !important;
+}
+
+/* Dark Mode: Muted Blue-Grey Button */
+body.dark-theme .org-card .btn-primary,
+body.dark-theme #organizations .btn-primary,
+body.dark-theme .org-card a.btn,
+[data-theme="dark"] .org-card .btn-primary,
+[data-theme="dark"] #organizations .btn-primary {
+    background-color: #334155 !important;
+    /* Dark slate grey */
+    background-image: none !important;
+    color: #f8fafc !important;
+    border: 1px solid #044efa !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+}
+
+body.dark-theme .org-card .btn-primary:hover,
+body.dark-theme #organizations .btn-primary:hover,
+[data-theme="dark"] .org-card .btn-primary:hover {
+    background-color: #475569 !important;
+    border-color: #044efa !important;
+}
+
+/* =========================================================
+   ORGANIZATIONS PAGE: FOOTER GAP
+   ========================================================= */
+#organizations,
+.page#organizations {
+    min-height: calc(100vh - 280px);
+    /* Adjust 280px based on header + footer height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* ==========================================
+   ORGANIZATION FLOATING MODALS
+   ========================================== */
+
+/* ==========================================
+   ORGANIZATION FLOATING MODALS (RESPONSIVE)
+   ========================================== */
+
+/* Dark Backdrop Overlay */
+.org-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    width: 100dvw; /* Dynamic viewport width for modern mobile devices */
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile browser toolbars */
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px); /* Smooth background blur */
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Handles tall content gracefully */
+}
+
+/* Active Class Toggled via JS */
+.org-modal.active {
+    display: flex !important;
+}
+
+/* Modal Content Card Box */
+.org-modal-content {
+    position: relative;
+    background: #f0f0f0;
+    color: #111111;
+    width: 100%;
+    max-width: 520px;
+    max-height: calc(100dvh - 32px); /* Prevents overflow past screen bounds */
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow-y: auto; /* Adds scrollbar inside modal if content exceeds screen height */
+    -webkit-overflow-scrolling: touch; /* Smooth iOS momentum scrolling */
+}
+
+/* Top Right Close 'X' Button */
+.modal-close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: transparent;
+    border: none;
+    font-size: 26px;
+    font-weight: 700;
+    color: #555;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10;
+    padding: 4px; /* Increases touch target area for mobile */
+}
+
+.modal-close:hover {
+    color: #000;
+}
+
+/* Header Section */
+.org-modal-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-right: 28px; /* Avoids overlap with the close 'X' button */
+}
+
+.org-modal-logo {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0; /* Prevents logo compression on small screens */
+    object-fit: contain;
+}
+
+.org-modal-head h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+}
+
+.org-modal-head span {
+    font-size: 0.85rem;
+    color: #555;
+    display: block;
+    margin-top: 4px;
+}
+
+/* Modal Body Text & Lists */
+.org-modal-desc {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    margin-bottom: 18px;
+    color: #222;
+}
+
+.org-modal-content h4 {
+    margin: 0 0 10px 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.org-modal-list {
+    padding-left: 18px;
+    margin-bottom: 24px;
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.org-modal-list li {
+    margin-bottom: 6px;
+}
+
+/* Footer Section */
+.org-modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #dcdcdc;
+    padding-top: 16px;
+    margin-top: auto; /* Sticks footer to bottom if modal scales */
+}
+
+.org-fb-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background-color: #1877f2;
+    border-radius: 50%;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.btn-close-gray {
+    background-color: #7d7d7d;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-close-gray:hover {
+    background-color: #555555;
+}
+
+/* ==========================================
+   DARK MODE ADJUSTMENTS FOR MODAL
+   ========================================== */
+body.dark-theme .org-modal-content,
+[data-theme="dark"] .org-modal-content {
+    background: #1e293b;
+    color: #f8fafc;
+}
+
+body.dark-theme .org-modal-head h2,
+[data-theme="dark"] .org-modal-head h2 {
+    color: #f8fafc;
+}
+
+body.dark-theme .org-modal-head span,
+body.dark-theme .modal-close,
+[data-theme="dark"] .org-modal-head span,
+[data-theme="dark"] .modal-close {
+    color: #94a3b8;
+}
+
+body.dark-theme .modal-close:hover,
+
+.btn-close-gray:hover {
+    background-color: #555555;
+}

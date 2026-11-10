@@ -1,0 +1,347 @@
+/* ========================================================= /
+/ ADMISSION & TUITION TABBING                               /
+/ ========================================================= */
+.steps-title, .section-subtitle {
+text-align: center;
+font-size: 1.35rem;
+font-weight: 700;
+color: #0f172a;
+}
+
+.section-subtitle { text-align: left; margin-bottom: 16px; }
+
+.steps-divider {
+border: none;
+border-top: 1px solid #cbd5e1;
+margin: 15px 0 30px;
+}
+
+.steps-grid {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+}
+
+.step-card {
+flex: 1;
+background-color: #ffffff;
+border: 1px solid #e2e8f0;
+border-radius: 12px;
+padding: 24px 16px;
+min-height: 230px;
+display: flex;
+flex-direction: column;
+}
+
+.step-badge {
+width: 40px;
+height: 40px;
+background-color: #2563eb;
+color: #ffffff;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 700;
+margin-bottom: 12px;
+}
+
+.step-card h4 { font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+.step-card p { font-size: 0.85rem; color: #475569; margin-bottom: 16px; flex-grow: 1; }
+
+.orange-link, .orange-note { color: #f97316; font-size: 0.82rem; font-weight: 600; text-decoration: underline; }
+.step-arrow { color: #60a5fa; font-size: 1.5rem; font-weight: bold; }
+
+.tuition-section, .scholarships-section { margin-top: 40px; }
+.tuition-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+
+.tuition-tab {
+padding: 8px 18px;
+border-radius: 8px;
+border: none;
+background-color: #e2e8f0;
+color: #2563eb;
+font-weight: 700;
+cursor: pointer;
+}
+
+.tuition-tab.active { background-color: #4054F5; color: #ffffff; }
+
+.tuition-card {
+background-color: #ffffff;
+border: 1px solid #e2e8f0;
+border-radius: 14px;
+padding: 24px;
+}
+
+.tuition-card-title { text-align: center; color: #1e3a8a; font-size: 1.15rem; font-weight: 800; margin-bottom: 16px; }
+
+.tuition-table {
+width: 100%;
+border-collapse: separate;
+border-spacing: 0;
+border-radius: 10px;
+overflow: hidden;
+border: 1px solid #e2e8f0;
+}
+
+body:not(.dark-theme) .tuition-table thead tr { background-color: #4054F5; }
+body:not(.dark-theme) .tuition-table th { color: #ffffff; padding: 12px 16px; }
+body:not(.dark-theme) .tuition-table td { background-color: #ffffff; color: #334155; padding: 12px 16px; }
+body:not(.dark-theme) .tuition-table .total-row td { background-color: #f8fafc; color: #0f172a; font-weight: 800; }
+
+.scholarships-card {
+background-color: #ffffff;
+border: 1px solid #e2e8f0;
+border-radius: 14px;
+padding: 24px 32px;
+max-width: 520px;
+}
+
+.scholarships-list { list-style: none; padding: 0; margin: 0; }
+.scholarships-list li { font-size: 0.85rem; font-weight: 700; color: #334155; padding: 6px 0; }
+
+/* Dark Mode Admission Overrides */
+body.dark-theme .steps-title,
+body.dark-theme .section-subtitle,
+body.dark-theme .step-card h4 { color: #ffffff !important; }
+
+body.dark-theme .step-card,
+body.dark-theme .tuition-card,
+body.dark-theme .scholarships-card {
+background-color: #1e293b !important;
+border-color: #334155 !important;
+}
+
+body.dark-theme .step-card p,
+body.dark-theme .scholarships-list li { color: #94a3b8 !important; }
+body.dark-theme .tuition-card-title { color: #60a5fa !important; }
+
+body.dark-theme .tuition-table thead tr { background-color: #2563eb !important; }
+body.dark-theme .tuition-table th { color: #ffffff !important; }
+body.dark-theme .tuition-table td { background-color: #1e293b !important; color: #cbd5e1 !important; border-bottom: 1px solid #334155; }
+body.dark-theme .tuition-table .total-row td { background-color: #0f172a !important; color: #ffffff !important; }
+
+@media (max-width: 760px) {
+.steps-grid { flex-direction: column; }
+.step-arrow { transform: rotate(90deg); }
+}
+/* --- Student Assistance & Scholarships Card --- */
+/* Section Titles */
+.section-subtitle {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 16px;
+}
+
+/* =========================================================
+   1. STUDENT ASSISTANCE & SCHOLARSHIPS CARD
+   ========================================================= */
+.student-assistance-section {
+    margin-top: 40px;
+}
+
+.scholarships-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px 28px;
+    max-width: 480px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.scholarships-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 12px;
+}
+
+.scholarships-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.scholarships-list li {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1e293b;
+    padding: 4px 0;
+    letter-spacing: 0.01em;
+}
+
+/* =========================================================
+   2. ONLINE ENROLLMENT FORM CARD (MATCHING IMAGE 1 & 2)
+   ========================================================= */
+.enrollment-section {
+    margin-top: 40px;
+}
+
+.enrollment-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 40px 36px;
+    max-width: 540px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.form-header h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 6px;
+}
+
+.form-subtitle {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 16px;
+}
+
+.step-progress {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.progress-bar {
+    width: 64px;
+    height: 5px;
+    background-color: #e2e8f0;
+    border-radius: 3px;
+}
+
+.progress-bar.active {
+    background-color: #2563eb;
+}
+
+/* Form Layout Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.form-group .required {
+    color: #ef4444;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    color: #0f172a;
+    background-color: #ffffff;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Blue Focus Border like Image 1 */
+.form-group input:focus,
+.form-group select:focus,
+.form-group input.input-active {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px #2563eb;
+}
+
+/* Privacy Terms */
+.form-privacy {
+    margin-top: 22px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #334155;
+    cursor: pointer;
+}
+
+.privacy-link {
+    color: #0f172a;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* Action Buttons */
+.form-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.btn-cancel,
+.btn-next {
+    flex: 1;
+    padding: 13px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.btn-cancel {
+    background-color: #e5e7eb;
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+
+.btn-cancel:hover {
+    background-color: #d1d5db;
+}
+
+.btn-next {
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-next:hover {
+    background-color: #1d4ed8;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+
+    .enrollment-card {
+        padding: 24px 20px;
+    }
+}

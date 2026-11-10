@@ -1,0 +1,183 @@
+/* Southland College - School of Business and Accountancy (SBA)
+   Programs page: degree program cards, career badges, curriculum button. */
+
+.program-image {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    border-radius: 8px;
+    background: transparent;
+}
+
+/* Card Container Grid */
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+/* Base Card Styling */
+.program-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card Poster Image Area */
+.program-poster {
+    width: 100%;
+    aspect-ratio: 4 / 4.2;
+    overflow: hidden;
+}
+
+.program-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Card Body Details */
+.program-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.program-body h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+}
+
+.program-body .desc {
+    font-size: 0.75rem;
+    color: #475569;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+/* Career Badges Layout */
+.career-section {
+    margin-top: auto;
+    margin-bottom: 1rem;
+}
+
+.career-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.badge-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.badge {
+    background-color: #e2e8f0;
+    color: #334155;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* Blue Action Button */
+.btn-curriculum {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 0.55rem 1.1rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.2s ease;
+}
+
+.btn-curriculum:hover {
+    background-color: #2563eb;
+}
+
+/* =========================================================
+   DEGREE PROGRAM CARDS CONTAINER OVERRIDE
+   ========================================================= */
+/* 1. Light Mode: White Card Containers */
+body:not(.dark-theme) .program-card,
+body:not(.dark-theme) .degree-card,
+body:not(.dark-theme) .course-card {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+}
+
+body:not(.dark-theme) .program-card h3,
+body:not(.dark-theme) .degree-card h3,
+body:not(.dark-theme) .course-card h3 {
+    color: #0f172a !important;
+    /* Dark Slate heading */
+}
+
+body:not(.dark-theme) .program-card p,
+body:not(.dark-theme) .degree-card p,
+body:not(.dark-theme) .course-card p {
+    color: #475569 !important;
+    /* Slate body text */
+}
+
+/* 2. Dark Mode: Royal Blue Card Containers */
+body.dark-theme .program-card,
+body.dark-theme .degree-card,
+body.dark-theme .course-card,
+[data-theme="dark"] .program-card,
+[data-theme="dark"] .degree-card,
+[data-theme="dark"] .course-card {
+    background-color: #4054F5 !important;
+    /* Royal Blue Container */
+    background-image: none !important;
+    border: 1px solid #3b82f6 !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+}
+
+body.dark-theme .program-card h3,
+body.dark-theme .degree-card h3,
+body.dark-theme .course-card h3,
+body.dark-theme .program-card p,
+body.dark-theme .degree-card p,
+body.dark-theme .course-card p,
+body.dark-theme .program-card .career-paths strong,
+body.dark-theme .degree-card .career-paths strong {
+    color: #ffffff !important;
+    /* Pure white text for headings, body, & labels */
+}
+
+/* Badge styling for Career Paths in Dark Mode */
+body.dark-theme .program-card span.badge,
+body.dark-theme .degree-card span,
+[data-theme="dark"] .program-card span.badge,
+[data-theme="dark"] .degree-card span {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    border: none !important;
+}
