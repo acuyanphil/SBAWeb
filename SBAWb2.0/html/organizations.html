@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Southland College - SBA | Organizations</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/organization.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- TOP ANNOUNCEMENT / UTILITY BAR -->
+    <div class="top-bar">
+        <div class="wrap top-bar-wrap">
+            <span>Direct Announcement</span>
+            <div class="top-contact">
+                <span>📞 (034) 7933543</span>
+                <span>✉️ Southland College - School of Business and Accountancy</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="wrap">
+            <a class="logo" href="index.html">
+                <img src="../images/SBA 2 (1).png" alt="Southland College SBA Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">SOUTHLAND COLLEGE</span>
+                    <span class="logo-subtitle">SCHOOL OF BUSINESS & ACCOUNTANCY</span>
+                </div>
+            </a>
+            <nav id="nav">
+                <a href="about.html">About</a>
+                <a href="programs.html">Programs</a>
+                <a href="admission.html">Admission</a>
+                <a href="organizations.html" class="on">Organizations</a>
+                <a href="gallery.html">Gallery</a>
+            </nav>
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">🌙 Dark</button>
+            <button class="menu" id="menu" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ORGANIZATIONS PAGE -->
+        <section class="page on" id="organizations">
+            <div class="wrap">
+                <div class="pagehead">
+                    <div class="eyebrow">Organizations</div>
+                    <h1>Recognized Student Organizations</h1>
+                </div>
+                <div class="grid2">
+                    <!-- Card 1 -->
+                    <div class="card org-card">
+                        <div class="ph">
+                            <img src="../images/JPAA.jpg" alt="Junior Philippine Institute Accountants">
+                        </div>
+                        <div>
+                            <h3>Junior Philippine Institute Accountants </h3>
+                            <p>Empowering future CPAs through academic workshops, leadership seminars, and professional networking to excel in accounting and financial management.</p>
+                            <a class="btn" href="#" data-modal="jpia-modal">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card org-card">
+                        <div class="ph">
+                            <img src="../images/JPEX.jpg" alt="Junior Business Executives">
+                        </div>
+                        <div>
+                            <h3>Junior Business Executives</h3>
+                            <p>Developing dynamic student leaders and entrepreneurs through real-world business projects, corporate expos, and executive skill-building initiatives.</p>
+                            <a class="btn" href="#" data-modal="jbex-modal">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JBEX FLOATING MODAL -->
+    <div class="org-modal" id="jbex-modal" aria-hidden="true" role="dialog">
+        <div class="org-modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            
+            <div class="org-modal-head">
+                <img src="../images/JPEX.jpg" alt="JBEX Logo" class="org-modal-logo">
+                <div>
+                    <h2>Junior Business Executives</h2>
+                    <span>Business Administration Organization</span>
+                </div>
+            </div>
+
+            <p class="org-modal-desc"><strong>SC – JBEX</strong> serves as a medium of expression for business students &amp; ideas and aspirations, protects and promotes the welfare and interests of business students, asserts dynamic and responsible student leadership, fosters moral, social, intellectual, and spiritual growth, and strengthens unifying ties among members.</p>
+
+            <h4>Core Purpose &amp; Objectives:</h4>
+            <ul class="org-modal-list">
+                <li><strong>Camaraderie &amp; Unity:</strong> Promote unity and camaraderie among business students both within the campus and with other institutions.</li>
+                <li><strong>Educational Advancement:</strong> Adopt and develop measures necessary for the academic advancement of members in the business field.</li>
+                <li><strong>Discipline &amp; Awareness:</strong> Develop public awareness and discipline among members.</li>
+                <li><strong>Practical Business Exposure:</strong> Serve as a bridge for continuing student exposure to actual business practices and acquaint members with professional business activities.</li>
+            </ul>
+
+            <div class="org-modal-footer">
+                <a class="org-fb-btn" href="#" target="_blank" rel="noopener" aria-label="Facebook page">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff">
+                        <path d="M13.5 22v-8h2.7l.5-3.3h-3.2V8.6c0-.9.4-1.7 1.8-1.7h1.5V4.1c-.3 0-1.2-.1-2.2-.1-2.3 0-3.8 1.4-3.8 3.9v2.8H7.6V14h2.7v8h3.2z" />
+                    </svg>
+                </a>
+                <button class="btn-close-gray close-modal-btn">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JPIA FLOATING MODAL -->
+    <div class="org-modal" id="jpia-modal" aria-hidden="true" role="dialog">
+        <div class="org-modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+
+            <div class="org-modal-head">
+                <img src="../images/JPAA.jpg" alt="JPIA Logo" class="org-modal-logo">
+                <div>
+                    <h2>Junior Philippine Institute Accountants</h2>
+                    <span>Accountancy Organization</span>
+                </div>
+            </div>
+
+            <p class="org-modal-desc">Empowering future CPAs through academic workshops, leadership seminars, and professional networking to excel in accounting and financial management.</p>
+
+            <h4>Core Purpose &amp; Objectives:</h4>
+            <ul class="org-modal-list">
+                <li><strong>Academic Excellence:</strong> Maintain high standards of scholarship in accounting studies.</li>
+                <li><strong>Professional Growth:</strong> Expose members to real-world auditing and accounting standards.</li>
+                <li><strong>Leadership &amp; Ethics:</strong> Build ethical integrity and leadership capacity for future CPAs.</li>
+            </ul>
+
+            <div class="org-modal-footer">
+                <a class="org-fb-btn" href="#" target="_blank" rel="noopener" aria-label="Facebook page">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff">
+                        <path d="M13.5 22v-8h2.7l.5-3.3h-3.2V8.6c0-.9.4-1.7 1.8-1.7h1.5V4.1c-.3 0-1.2-.1-2.2-.1-2.3 0-3.8 1.4-3.8 3.9v2.8H7.6V14h2.7v8h3.2z" />
+                    </svg>
+                </a>
+                <button class="btn-close-gray close-modal-btn">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+<footer>
+    <div class="wrap">
+        <div>
+            <div class="logo">
+                <img src="../images/SBA 2 (1).png" alt="Southland College SBA Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">SOUTHLAND COLLEGE</span>
+                    <span class="logo-subtitle">SCHOOL OF BUSINESS &amp; ACCOUNTANCY</span>
+                </div>
+            </div>
+            <p class="footer-tagline">Building the future of business leaders</p>
+            <a class="footer-social" href="#" aria-label="Facebook" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
+            </a>
+        </div>
+
+        <div>
+            <h4>Contact Info</h4>
+            <div class="footer-item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a8 8 0 0 0-8 8c0 6 8 16 8 16s8-10 8-16a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+                <span>Rizal Street, Kabankalan City, Negros Occidental, 6111, Philippines.</span>
+            </div>
+            <div class="footer-item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+                <span>(034) 793 3543</span>
+            </div>
+            <div class="footer-item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a1 1 0 0 1 1 1v.5l-11 7-11-7V5a1 1 0 0 1 1-1zm-1 4.2 11 7 11-7V19a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg>
+                <span>SBA@southlandcollege.edu.ph</span>
+            </div>
+            <div class="footer-item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm0 21.5a9.5 9.5 0 1 1 0-19 9.5 9.5 0 0 1 0 19zM12.8 6h-2v7l5.2 3.1 1-1.6-4.2-2.5z"/></svg>
+                <span>8am - 5pm</span>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="about.html">About</a>
+            <a href="admission.html">Contact Inquiry Form</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>Resources</h4>
+            <a href="about.html">FAQ's</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html">Documents</a>
+            <a href="about.html">Reference</a>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const nav = document.getElementById('nav'), mb = document.getElementById('menu');
+        mb.addEventListener('click', () => { 
+            const o = nav.classList.toggle('open'); 
+            mb.setAttribute('aria-expanded', o); 
+        });
+
+        // Dark / Light Theme Toggle Script
+        const themeBtn = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            themeBtn.textContent = '☀️ Light';
+        } else {
+            themeBtn.textContent = '🌙 Dark';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            themeBtn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Modal Trigger Logic
+        const modalTriggers = document.querySelectorAll('[data-modal]');
+        const modals = document.querySelectorAll('.org-modal');
+
+        modalTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = trigger.getAttribute('data-modal');
+                const targetModal = document.getElementById(targetId);
+
+                modals.forEach(m => {
+                    m.classList.remove('active');
+                    m.setAttribute('aria-hidden', 'true');
+                });
+
+                if (targetModal) {
+                    targetModal.classList.add('active');
+                    targetModal.setAttribute('aria-hidden', 'false');
+                }
+            });
+        });
+
+        // Close Modal via 'X' button and 'CLOSE' footer button
+        document.querySelectorAll('.modal-close, .close-modal-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modal = btn.closest('.org-modal');
+                if (modal) {
+                    modal.classList.remove('active');
+                    modal.setAttribute('aria-hidden', 'true');
+                }
+            });
+        });
+
+        // Close Modal when clicking outside the modal box (backdrop click)
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('org-modal')) {
+                e.target.classList.remove('active');
+                e.target.setAttribute('aria-hidden', 'true');
+            }
+        });
+    </script>
+</body>
+
+</html>

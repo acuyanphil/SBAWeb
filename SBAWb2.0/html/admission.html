@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Southland College - SBA | Admission</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/admission.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- TOP ANNOUNCEMENT / UTILITY BAR -->
+    <div class="top-bar">
+        <div class="wrap top-bar-wrap">
+            <span>Direct Announcement</span>
+            <div class="top-contact">
+                <span>📞 (034) 7933543</span>
+                <span>✉️ Southland College - School of Business and Accountancy</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="wrap">
+            <a class="logo" href="index.html">
+                <img src="../images/SBA 2 (1).png" alt="Southland College SBA Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">SOUTHLAND COLLEGE</span>
+                    <span class="logo-subtitle">SCHOOL OF BUSINESS & ACCOUNTANCY</span>
+                </div>
+            </a>
+            <nav id="nav">
+                <a href="about.html">About</a>
+                <a href="programs.html">Programs</a>
+                <a href="admission.html" class="on">Admission</a>
+                <a href="organizations.html">Organizations</a>
+                <a href="gallery.html">Gallery</a>
+            </nav>
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">🌙 Dark</button>
+            <button class="menu" id="menu" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ADMISSION PAGE -->
+        <section class="page on" id="admission">
+            <div class="wrap">
+                <div class="pagehead">
+                    <div class="eyebrow">Admission</div>
+                    <h1>Join SBA Community</h1>
+                </div>
+
+                <!-- 4 Easy Steps Section -->
+                <div class="steps-container">
+                    <h3 class="steps-title">4 Easy Steps to Get Started</h3>
+                    <hr class="steps-divider">
+
+                    <div class="steps-grid">
+                        <!-- Step 1 -->
+                        <div class="step-card">
+                            <div class="step-badge">1</div>
+                            <h4>1. Inquire</h4>
+                            <p>Reach out to us and share your academic interests.</p>
+                            <a href="#contact" class="step-link orange-link">Contact Us</a>
+                        </div>
+                        <div class="step-arrow">&rarr;</div>
+
+                        <!-- Step 2 -->
+                        <div class="step-card">
+                            <div class="step-badge">2</div>
+                            <h4>2. Apply</h4>
+                            <p>Submit your online application and required documents.</p>
+                            <a href="#apply" class="step-link orange-link">Apply Online Form</a>
+                        </div>
+                        <div class="step-arrow">&rarr;</div>
+
+                        <!-- Step 3 -->
+                        <div class="step-card">
+                            <div class="step-badge">3</div>
+                            <h4>3. Review</h4>
+                            <p>Our admissions committee evaluates your profile.</p>
+                            <span class="step-note orange-note">Will update you via email</span>
+                        </div>
+                        <div class="step-arrow">&rarr;</div>
+
+                        <!-- Step 4 -->
+                        <div class="step-card">
+                            <div class="step-badge">4</div>
+                            <h4>4. Enroll</h4>
+                            <p>Secure your slot and officially join Southland College.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tuition Fee Section -->
+                <div class="tuition-section">
+                    <h3 class="section-subtitle">Tuition Fee</h3>
+
+                    <!-- Navigation Tabs -->
+                    <div class="tuition-tabs">
+                        <button class="tuition-tab active" onclick="switchTuitionTab(event, 'bsba-fm')">BSBA-
+                            FM</button>
+                        <button class="tuition-tab" onclick="switchTuitionTab(event, 'bsba-mm')">BSBA- MM</button>
+                        <button class="tuition-tab" onclick="switchTuitionTab(event, 'bs-accountancy')">BS -
+                            Accountancy</button>
+                    </div>
+
+                    <div class="tuition-card">
+                        <!-- BSBA-FM Table -->
+                        <div id="bsba-fm" class="tuition-content">
+                            <h4 class="tuition-card-title">BSBA- Finance Management</h4>
+                            <div class="table-responsive">
+                                <table class="tuition-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Year</th>
+                                            <th>1st year</th>
+                                            <th>2nd year</th>
+                                            <th>3rd year</th>
+                                            <th>4th year</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tuition:</td>
+                                            <td>Php 29.000</td>
+                                            <td>Php 30.000</td>
+                                            <td>Php 31.000</td>
+                                            <td>Php 32.000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Miscellaneous:</td>
+                                            <td>Php 29.000</td>
+                                            <td>Php 30.000</td>
+                                            <td>Php 31.000</td>
+                                            <td>Php 32.000</td>
+                                        </tr>
+                                        <tr class="total-row">
+                                            <td>Total Payment:</td>
+                                            <td>Php 29.000</td>
+                                            <td>Php 30.000</td>
+                                            <td>Php 31.000</td>
+                                            <td>Php 32.000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- BSBA-MM Table -->
+                        <div id="bsba-mm" class="tuition-content" style="display: none;">
+                            <h4 class="tuition-card-title">BSBA- Marketing Management</h4>
+                            <div class="table-responsive">
+                                <table class="tuition-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Year</th>
+                                            <th>1st year</th>
+                                            <th>2nd year</th>
+                                            <th>3rd year</th>
+                                            <th>4th year</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tuition:</td>
+                                            <td>Php 27.000</td>
+                                            <td>Php 28.000</td>
+                                            <td>Php 29.000</td>
+                                            <td>Php 30.000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Miscellaneous:</td>
+                                            <td>Php 27.000</td>
+                                            <td>Php 28.000</td>
+                                            <td>Php 29.000</td>
+                                            <td>Php 30.000</td>
+                                        </tr>
+                                        <tr class="total-row">
+                                            <td>Total Payment:</td>
+                                            <td>Php 27.000</td>
+                                            <td>Php 28.000</td>
+                                            <td>Php 29.000</td>
+                                            <td>Php 30.000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- BS Accountancy Table -->
+                        <div id="bs-accountancy" class="tuition-content" style="display: none;">
+                            <h4 class="tuition-card-title">Bachelor of Science in Accountancy</h4>
+                            <div class="table-responsive">
+                                <table class="tuition-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Year</th>
+                                            <th>1st year</th>
+                                            <th>2nd year</th>
+                                            <th>3rd year</th>
+                                            <th>4th year</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tuition:</td>
+                                            <td>Php 28.000</td>
+                                            <td>Php 29.000</td>
+                                            <td>Php 30.000</td>
+                                            <td>Php 32.000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Miscellaneous:</td>
+                                            <td>Php 28.000</td>
+                                            <td>Php 30.000</td>
+                                            <td>Php 31.000</td>
+                                            <td>Php 31.000</td>
+                                        </tr>
+                                        <tr class="total-row">
+                                            <td>Total Payment:</td>
+                                            <td>Php 28.000</td>
+                                            <td>Php 29.000</td>
+                                            <td>Php 31.000</td>
+                                            <td>Php 31.000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!-- Student Assistance Section -->
+<div class="student-assistance-section">
+    <h3 class="section-subtitle">Student Assistance</h3>
+
+    <div class="scholarships-card">
+        <h4 class="scholarships-title">Scholarships Offer</h4>
+        <ul class="scholarships-list">
+            <li>SSG BENEFIT</li>
+            <li>SOUTH QUILL BENEFIT</li>
+            <li>CHURCH PASTOR/BIBLE WOMAN/CHURCH WORKER BENEFIT</li>
+            <li>EMPLOYEES BENEFIT</li>
+            <li>STUDENT ASSISTANT BENEFIT</li>
+            <li>SIBLINGS PRIVILEGE</li>
+            <li>RETIRED MILITARY/ PNP PRIVILEGE</li>
+            <li>BARKADAHAN PRIVILEGE</li>
+            <li>SC LOYALTY PRIVILEGE</li>
+            <li>TRANSFEREE PRIVILIGE</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Enrollment Form Section -->
+<div class="enrollment-section" id="apply">
+    <h3 class="section-subtitle">Enrollment Form</h3>
+
+    <div class="enrollment-card">
+        <div class="form-header">
+            <h2>Online Enrollment Form</h2>
+            <p class="form-subtitle">CHED-Compliant Data Gathering • Step 1 of 2</p>
+            <div class="step-progress">
+                <span class="progress-bar active"></span>
+                <span class="progress-bar"></span>
+            </div>
+        </div>
+
+        <form action="#" method="POST" class="enrollment-form">
+            <div class="form-grid">
+                <!-- Row 1 -->
+                <div class="form-group">
+                    <label for="full-name">Full Legal Name <span class="required">*</span></label>
+                    <input type="text" id="full-name" name="full_name" placeholder="Last , First Middle Name, Sfx" class="input-active" required>
+                </div>
+                <div class="form-group">
+                    <label for="lrn">Learner Reference Number(LRN) <span class="required">*</span></label>
+                    <input type="text" id="lrn" name="lrn" placeholder="LRN#" required>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="form-group">
+                    <label for="dob">Date of Birth <span class="required">*</span></label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="sex">Sex <span class="required">*</span></label>
+                    <select id="sex" name="sex" required>
+                        <option value="" disabled selected>---</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="form-group">
+                    <label for="civil-status">Civil Status <span class="required">*</span></label>
+                    <select id="civil-status" name="civil_status" required>
+                        <option value="" disabled selected>---</option>
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Widowed">Widowed</option>
+                        <option value="Separated">Separated</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="place-of-birth">Place of Birth <span class="required">*</span></label>
+                    <input type="text" id="place-of-birth" name="place_of_birth" placeholder="Date of Birth" required>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="form-group">
+                    <label for="mobile">Active Mobile Number <span class="required">*</span></label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="+63 ---" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Active Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="email@gmail.com" required>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="form-group full-width">
+                    <label for="address">Permanent Address <span class="required">*</span></label>
+                    <input type="text" id="address" name="address" placeholder="Prk, Brgy, City, Province" required>
+                </div>
+
+                <!-- Row 6 -->
+                <div class="form-group">
+                    <label for="program">Intended Program <span class="required">*</span></label>
+                    <select id="program" name="program" required>
+                        <option value="" disabled selected>Select Program</option>
+                        <option value="BSBA-FM">BSBA - Financial Management</option>
+                        <option value="BSBA-MM">BSBA - Marketing Management</option>
+                        <option value="BSA">BS - Accountancy</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="year-level">Year Level <span class="required">*</span></label>
+                    <input type="text" id="year-level" name="year_level" placeholder="Date of Birth" required>
+                </div>
+            </div>
+
+            <div class="form-privacy">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="data_privacy" required>
+                    I agree to the <a href="#" class="privacy-link">Data Privacy</a> (RA 10173) policy & terms.
+                </label>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn-cancel">Cancel</button>
+                <button type="submit" class="btn-next">Next Step</button>
+            </div>
+        </form>
+    </div>
+</div>
+</section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+    <div class="wrap">
+        <div>
+            <div class="logo">
+                <img src="../images/SBA 2 (1).png" alt="Southland College SBA Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">SOUTHLAND COLLEGE</span>
+                    <span class="logo-subtitle">SCHOOL OF BUSINESS &amp; ACCOUNTANCY</span>
+                </div>
+            </div>
+            <p class="footer-tagline">Building the future of business leaders</p>
+            <a class="footer-social" href="#" aria-label="Facebook" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
+            </a>
+        </div>
+
+        <div>
+            <h4>Contact Info</h4>
+            <div class="footer-item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a8 8 0 0 0-8 8c0 6 8 16 8 16s8-10 8-16a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+                <span>Rizal Street, Kabankalan City, Negros Occidental, 6111, Philippines.</span>
+            </div>
+            <div class="footer-item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+                <span>(034) 793 3543</span>
+            </div>
+            <div class="footer-item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a1 1 0 0 1 1 1v.5l-11 7-11-7V5a1 1 0 0 1 1-1zm-1 4.2 11 7 11-7V19a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg>
+                <span>SBA@southlandcollege.edu.ph</span>
+            </div>
+            <div class="footer-item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm0 21.5a9.5 9.5 0 1 1 0-19 9.5 9.5 0 0 1 0 19zM12.8 6h-2v7l5.2 3.1 1-1.6-4.2-2.5z"/></svg>
+                <span>8am - 5pm</span>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="about.html">About</a>
+            <a href="admission.html">Contact Inquiry Form</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>Resources</h4>
+            <a href="about.html">FAQ's</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html">Documents</a>
+            <a href="about.html">Reference</a>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        function switchTuitionTab(event, courseId) {
+            const contents = document.querySelectorAll('.tuition-content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+
+            const tabs = document.querySelectorAll('.tuition-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            document.getElementById(courseId).style.display = 'block';
+            event.currentTarget.classList.add('active');
+        }
+
+        const nav = document.getElementById('nav'), mb = document.getElementById('menu');
+        mb.addEventListener('click', () => { const o = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', o); });
+
+        // Dark / Light Theme Toggle Script
+        const themeBtn = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            themeBtn.textContent = '☀️ Light';
+        } else {
+            themeBtn.textContent = '🌙 Dark';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            themeBtn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    </script>
+</body>
+
+</html>
