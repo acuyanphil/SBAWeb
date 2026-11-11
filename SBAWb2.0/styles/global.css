@@ -18,7 +18,7 @@ body {
     /* Royal Blue */
     --primary-gradient: linear-gradient(180deg, #4054F5 0%, #24358F 100%);
     --primary-color: #fff;
-    --primary-color2: #0F172A; 
+    --primary-color2: #0F172A;
     --primary-dark: #172033;
     /* Background Colors */
     --bg: #F1F2F5;
@@ -866,13 +866,43 @@ video {
         font-size: 14px;
         overflow-wrap: break-word;
     }
-
-
-
 }
 
 /* =========================================================
-   FOOTER (mockup style) - paste at the very BOTTOM of global.css.
+   HEADINGS: black in light mode, white in dark mode
+   ========================================================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #000000;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: #ffffff;
+}
+
+/* Keep headings white on the blue header and footer in both modes */
+header h1, header h2, header h3,
+footer h1, footer h2, footer h3, footer h4 {
+    color: #ffffff;
+}
+
+/* =========================================================
+   FOOTER (mockup style) - keep at the very BOTTOM of global.css.
    Only targets footer; nothing else in the file is changed.
    ========================================================= */
 footer {
