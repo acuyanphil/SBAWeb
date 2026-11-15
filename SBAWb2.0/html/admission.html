@@ -12,16 +12,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/SBA%202%20(1).png">
+    <link rel="apple-touch-icon" href="../images/SBA%202%20(1).png">
+    <link rel="stylesheet" href="../styles/enhancements.css">
+    <script>(function(r){r.classList.add('js');try{if(localStorage.getItem('theme')==='dark')r.classList.add('pre-dark');if(!sessionStorage.getItem('sba-intro')){r.classList.add('intro');sessionStorage.setItem('sba-intro','1')}}catch(e){}})(document.documentElement);</script>
+    <script src="../site.js" defer></script>
 </head>
 
 <body>
     <!-- TOP ANNOUNCEMENT / UTILITY BAR -->
-    <div class="top-bar">
+<div class="top-bar">
         <div class="wrap top-bar-wrap">
-            <span>Direct Announcement</span>
+            <span>Welcome to Southland College SBA Department Website</span>
             <div class="top-contact">
-                <span>📞 (034) 7933543</span>
-                <span>✉️ Southland College - School of Business and Accountancy</span>
+                <span>📞 (034) 4713 280</span>
+                <span>✉️ cherry.lopez@southlandcollege.edu.ph</span>
             </div>
         </div>
     </div>
@@ -68,7 +73,7 @@
                             <div class="step-badge">1</div>
                             <h4>1. Inquire</h4>
                             <p>Reach out to us and share your academic interests.</p>
-                            <a href="#contact" class="step-link orange-link">Contact Us</a>
+                            <a href="#contact" id="open-contact" class="step-link orange-link" role="button">Contact Us</a>
                         </div>
                         <div class="step-arrow">&rarr;</div>
 
@@ -77,7 +82,7 @@
                             <div class="step-badge">2</div>
                             <h4>2. Apply</h4>
                             <p>Submit your online application and required documents.</p>
-                            <a href="#apply" class="step-link orange-link">Apply Online Form</a>
+                            <a href="#apply" id="go-apply" class="step-link orange-link">Apply Online Form</a>
                         </div>
                         <div class="step-arrow">&rarr;</div>
 
@@ -242,19 +247,24 @@
 <div class="student-assistance-section">
     <h3 class="section-subtitle">Student Assistance</h3>
 
-    <div class="scholarships-card">
-        <h4 class="scholarships-title">Scholarships Offer</h4>
-        <ul class="scholarships-list">
-            <li>SSG BENEFIT</li>
-            <li>SOUTH QUILL BENEFIT</li>
-            <li>CHURCH PASTOR/BIBLE WOMAN/CHURCH WORKER BENEFIT</li>
-            <li>EMPLOYEES BENEFIT</li>
-            <li>STUDENT ASSISTANT BENEFIT</li>
-            <li>SIBLINGS PRIVILEGE</li>
-            <li>RETIRED MILITARY/ PNP PRIVILEGE</li>
-            <li>BARKADAHAN PRIVILEGE</li>
-            <li>SC LOYALTY PRIVILEGE</li>
-            <li>TRANSFEREE PRIVILIGE</li>
+    <div class="sa-card">
+        <div class="sa-side">
+            <span class="sa-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v4L12 21l7-3.8v-4L12 17l-7-3.8z"/></svg></span>
+            <h4 class="sa-title">Scholarships Offer</h4>
+            <p class="sa-sub">10 benefits and privileges to help you study at SBA.</p>
+            <button type="button" class="sa-btn" data-open-contact>Ask about eligibility</button>
+        </div>
+        <ul class="sa-list">
+            <li>SSG Benefit</li>
+            <li>South Quill Benefit</li>
+            <li>Church Pastor / Bible Woman / Church Worker Benefit</li>
+            <li>Employees Benefit</li>
+            <li>Student Assistant Benefit</li>
+            <li>Siblings Privilege</li>
+            <li>Retired Military / PNP Privilege</li>
+            <li>Barkadahan Privilege</li>
+            <li>SC Loyalty Privilege</li>
+            <li>Transferee Privilege</li>
         </ul>
     </div>
 </div>
@@ -263,109 +273,252 @@
 <div class="enrollment-section" id="apply">
     <h3 class="section-subtitle">Enrollment Form</h3>
 
-    <div class="enrollment-card">
-        <div class="form-header">
-            <h2>Online Enrollment Form</h2>
-            <p class="form-subtitle">CHED-Compliant Data Gathering • Step 1 of 2</p>
-            <div class="step-progress">
-                <span class="progress-bar active"></span>
-                <span class="progress-bar"></span>
+    <div class="enrollment-card" id="enroll-card">
+        <div class="enr-main">
+            <div class="form-header">
+                <h2>Online Enrollment Form</h2>
+                <p class="form-subtitle" id="enr-sub">CHED-Compliant Data Gathering • Step 1 of 2</p>
+                <div class="step-progress" aria-hidden="true">
+                    <span class="progress-bar active"></span>
+                    <span class="progress-bar" id="pb2"></span>
+                </div>
             </div>
+
+            <form action="#" method="POST" class="enrollment-form" id="enroll-form" novalidate>
+                <!-- STEP 1 -->
+                <div class="enr-step" data-step="1">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="full-name">Full Legal Name <span class="required">*</span></label>
+                            <input type="text" id="full-name" name="full_name" placeholder="Last, First Middle Name, Sfx" autocomplete="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lrn">Learner Reference Number (LRN) <span class="required">*</span></label>
+                            <input type="text" id="lrn" name="lrn" placeholder="LRN#" inputmode="numeric" pattern="[0-9]{12}" title="12-digit LRN" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date of Birth <span class="required">*</span></label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sex">Sex <span class="required">*</span></label>
+                            <select id="sex" name="sex" required>
+                                <option value="" disabled selected>---</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="civil-status">Civil Status <span class="required">*</span></label>
+                            <select id="civil-status" name="civil_status" required>
+                                <option value="" disabled selected>---</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Widowed">Widowed</option>
+                                <option value="Separated">Separated</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="place-of-birth">Place of Birth <span class="required">*</span></label>
+                            <input type="text" id="place-of-birth" name="place_of_birth" placeholder="City, Province" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Active Mobile Number <span class="required">*</span></label>
+                            <input type="tel" id="mobile" name="mobile" placeholder="+63 ---" autocomplete="tel" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Active Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="email@gmail.com" autocomplete="email" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="address">Permanent Address <span class="required">*</span></label>
+                            <input type="text" id="address" name="address" placeholder="Prk, Brgy, City, Province" autocomplete="street-address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="program">Intended Program <span class="required">*</span></label>
+                            <select id="program" name="program" required>
+                                <option value="" disabled selected>Select Program</option>
+                                <option value="BSBA-FM">BSBA - Financial Management</option>
+                                <option value="BSBA-MM">BSBA - Marketing Management</option>
+                                <option value="BSA">BS - Accountancy</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="year-level">Year Level <span class="required">*</span></label>
+                            <select id="year-level" name="year_level" required>
+                                <option value="" disabled selected>Select Year Level</option>
+                                <option>1st Year</option>
+                                <option>2nd Year</option>
+                                <option>3rd Year</option>
+                                <option>4th Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-privacy">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="data_privacy" required>
+                            <span>I agree to the <a href="#" class="privacy-link">Data Privacy</a> (RA 10173) policy &amp; terms.</span>
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" id="enr-cancel">Cancel</button>
+                        <button type="button" class="btn-next" id="enr-next">Next Step</button>
+                    </div>
+                </div>
+
+                <!-- STEP 2 -->
+                <div class="enr-step" data-step="2" hidden>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="shs-name">SHS School Name <span class="required">*</span></label>
+                            <input type="text" id="shs-name" name="shs_name" placeholder="Previous School Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="shs-address">High School Address <span class="required">*</span></label>
+                            <input type="text" id="shs-address" name="shs_address" placeholder="Previous School Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="strand">Strand / Track <span class="required">*</span></label>
+                            <input type="text" id="strand" name="strand" placeholder="e.g., ABM" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="grad-year">Year Graduated <span class="required">*</span></label>
+                            <input type="number" id="grad-year" name="grad_year" placeholder="YYYY" min="1990" max="2100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gwa">General Weighted Average <span class="required">*</span></label>
+                            <input type="number" id="gwa" name="gwa" placeholder="Previous GWA" step="0.01" min="60" max="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="learner-status">Learner Status <span class="required">*</span></label>
+                            <select id="learner-status" name="learner_status" required>
+                                <option value="" disabled selected>---</option>
+                                <option>Graduate</option>
+                                <option>Graduating (Grade 12)</option>
+                                <option>Transferee</option>
+                                <option>ALS Passer</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="id-block">
+                        <h5>Identity Verification <small>(For Online Evaluation)</small></h5>
+                        <p class="id-hint">You can use your Guardian's ID</p>
+                        <div class="form-group">
+                            <label for="id-type">Select Valid ID Type <span class="required">*</span></label>
+                            <select id="id-type" name="id_type" required>
+                                <option value="" disabled selected>Select any valid ID type (e.g., School ID, PhilID)</option>
+                                <option>School ID</option>
+                                <option>PhilID / National ID</option>
+                                <option>Passport</option>
+                                <option>Driver's License</option>
+                                <option>Voter's ID</option>
+                                <option>Other government-issued ID</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="id-file">Upload 1 Valid ID (attached a clear photo) <span class="required">*</span></label>
+                            <label class="dropzone" id="dropzone" for="id-file">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 7 8h3.5v6h3V8H17l-5-5zM5 18v3h14v-3h-2v1H7v-1H5z"/></svg>
+                                <span id="dz-text">Choose or drag a file here <em>(max 5MB, PDF, JPG, PNG)</em></span>
+                            </label>
+                            <input type="file" id="id-file" name="id_file" accept=".pdf,.jpg,.jpeg,.png" hidden>
+                            <small class="dz-error" id="dz-error" role="alert"></small>
+                        </div>
+                    </div>
+
+                    <div class="note-box">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        <p><b>Note:</b> Physical submission of hardcopy credentials (Form 138/SF10, PSA Birth Certificate, Good Moral) will be submitted directly to the Registrar's Office upon campus visit.</p>
+                    </div>
+
+                    <div class="form-privacy">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="certify" required>
+                            <span>I certify that all information provided is true and accurate.</span>
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" id="enr-back">Back</button>
+                        <button type="submit" class="btn-next" id="enr-submit"><span>Submit Enrollment Application</span></button>
+                    </div>
+                </div>
+            </form>
         </div>
 
-        <form action="#" method="POST" class="enrollment-form">
-            <div class="form-grid">
-                <!-- Row 1 -->
-                <div class="form-group">
-                    <label for="full-name">Full Legal Name <span class="required">*</span></label>
-                    <input type="text" id="full-name" name="full_name" placeholder="Last , First Middle Name, Sfx" class="input-active" required>
-                </div>
-                <div class="form-group">
-                    <label for="lrn">Learner Reference Number(LRN) <span class="required">*</span></label>
-                    <input type="text" id="lrn" name="lrn" placeholder="LRN#" required>
-                </div>
-
-                <!-- Row 2 -->
-                <div class="form-group">
-                    <label for="dob">Date of Birth <span class="required">*</span></label>
-                    <input type="date" id="dob" name="dob" required>
-                </div>
-                <div class="form-group">
-                    <label for="sex">Sex <span class="required">*</span></label>
-                    <select id="sex" name="sex" required>
-                        <option value="" disabled selected>---</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-                </div>
-
-                <!-- Row 3 -->
-                <div class="form-group">
-                    <label for="civil-status">Civil Status <span class="required">*</span></label>
-                    <select id="civil-status" name="civil_status" required>
-                        <option value="" disabled selected>---</option>
-                        <option value="Single">Single</option>
-                        <option value="Married">Married</option>
-                        <option value="Widowed">Widowed</option>
-                        <option value="Separated">Separated</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="place-of-birth">Place of Birth <span class="required">*</span></label>
-                    <input type="text" id="place-of-birth" name="place_of_birth" placeholder="Date of Birth" required>
-                </div>
-
-                <!-- Row 4 -->
-                <div class="form-group">
-                    <label for="mobile">Active Mobile Number <span class="required">*</span></label>
-                    <input type="tel" id="mobile" name="mobile" placeholder="+63 ---" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Active Email Address <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="email@gmail.com" required>
-                </div>
-
-                <!-- Row 5 -->
-                <div class="form-group full-width">
-                    <label for="address">Permanent Address <span class="required">*</span></label>
-                    <input type="text" id="address" name="address" placeholder="Prk, Brgy, City, Province" required>
-                </div>
-
-                <!-- Row 6 -->
-                <div class="form-group">
-                    <label for="program">Intended Program <span class="required">*</span></label>
-                    <select id="program" name="program" required>
-                        <option value="" disabled selected>Select Program</option>
-                        <option value="BSBA-FM">BSBA - Financial Management</option>
-                        <option value="BSBA-MM">BSBA - Marketing Management</option>
-                        <option value="BSA">BS - Accountancy</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="year-level">Year Level <span class="required">*</span></label>
-                    <input type="text" id="year-level" name="year_level" placeholder="Date of Birth" required>
-                </div>
+        <!-- SUCCESS -->
+        <div class="enr-done" id="enr-done" hidden aria-live="polite">
+            <div class="ck-wrap"><svg class="ck" viewBox="0 0 52 52" aria-hidden="true"><circle class="ck-c" cx="26" cy="26" r="24"/><path class="ck-p" d="M14 27l8 8 16-18"/></svg><div class="burst"></div></div>
+            <h2>Enrollment Application Submitted!</h2>
+            <p class="form-subtitle">Thank you for applying to Southland College.</p>
+            <dl class="done-box">
+                <div><dt>Application ID:</dt><dd id="d-id"></dd></div>
+                <div><dt>Date Submitted:</dt><dd id="d-date"></dd></div>
+                <div><dt>Program:</dt><dd id="d-prog"></dd></div>
+            </dl>
+            <div class="done-next">
+                <h5>What happens next?</h5>
+                <p><b>1. Check Your Email:</b><br>We will send an acknowledgment and confirmation to your registered email within 2–3 working days.</p>
+                <p><b>2. Book an On-Campus Visit:</b><br>Bring your original physical documents (Form 138/SF10, PSA Birth Certificate, Good Moral) to the Registrar's Office to finalize your enrollment.</p>
             </div>
-
-            <div class="form-privacy">
-                <label class="checkbox-label">
-                    <input type="checkbox" name="data_privacy" required>
-                    I agree to the <a href="#" class="privacy-link">Data Privacy</a> (RA 10173) policy & terms.
-                </label>
-            </div>
-
-            <div class="form-actions">
-                <button type="button" class="btn-cancel">Cancel</button>
-                <button type="submit" class="btn-next">Next Step</button>
-            </div>
-        </form>
+            <button type="button" class="btn-next done-btn" id="enr-done-btn">Done</button>
+        </div>
     </div>
+</div>
 </div>
 </section>
     </main>
 
+    <!-- CONTACT POP-UP -->
+    <div class="cm" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="cm-title" aria-hidden="true">
+        <div class="cm-back" data-close></div>
+        <div class="cm-card" id="cm-card">
+            <button type="button" class="cm-x" data-close aria-label="Close contact card">&times;</button>
+
+            <div class="cm-panel" id="cm-form-panel">
+                <div class="cm-head">
+                    <span class="cm-ico st" style="--i:0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a1 1 0 0 1 1 1v.5l-11 7-11-7V5a1 1 0 0 1 1-1zm-1 4.2 11 7 11-7V19a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg></span>
+                    <h2 id="cm-title" class="st" style="--i:1">Contact info</h2>
+                    <p class="st" style="--i:2">Questions about admission? Reach out and we'll get back to you.</p>
+                </div>
+                <div class="cm-body">
+                    <a class="cm-row st" style="--i:3" href="tel:+63347133280" id="cm-phone">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+                        <span><small>Phone</small>(034) 4713 280</span>
+                    </a>
+                    <a class="cm-row st" style="--i:4" href="mailto:cherry.lopez@southlandcollege.edu.ph">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a1 1 0 0 1 1 1v.5l-11 7-11-7V5a1 1 0 0 1 1-1zm-1 4.2 11 7 11-7V19a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg>
+                        <span><small>Email</small>cherry.lopez@southlandcollege.edu.ph</span>
+                    </a>
+
+                    <form id="cm-form" novalidate>
+                        <p class="cm-or st" style="--i:5">Or send your concerns here:</p>
+                        <div class="cm-field st" style="--i:6">
+                            <label for="cm-email">Your email address <span class="required">*</span></label>
+                            <input type="email" id="cm-email" placeholder="your@email.com" autocomplete="email" required>
+                        </div>
+                        <div class="cm-field st" style="--i:7">
+                            <label for="cm-msg">Message <span class="required">*</span></label>
+                            <textarea id="cm-msg" rows="4" placeholder="Feel free to reach us here" required></textarea>
+                        </div>
+                        <button type="submit" class="cm-send st" style="--i:8" id="cm-send"><span>Send</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 23 12 2 3v7l15 2-15 2z"/></svg></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="cm-ok" id="cm-ok" hidden aria-live="polite">
+                <div class="ck-wrap"><svg class="ck" viewBox="0 0 52 52" aria-hidden="true"><circle class="ck-c" cx="26" cy="26" r="24"/><path class="ck-p" d="M14 27l8 8 16-18"/></svg><div class="burst"></div></div>
+                <h2>Message sent!</h2>
+                <p>Thank you. We'll reply to <b id="cm-ok-mail"></b> soon.</p>
+                <button type="button" class="cm-close-btn" data-close>Close</button>
+                <p class="cm-count" id="cm-count">Closing automatically in 5s</p>
+                <div class="cm-timer"><i></i></div>
+            </div>
+        </div>
+    </div>
+
     <!-- FOOTER -->
-    <footer>
+<footer>
     <div class="wrap">
         <div>
             <div class="logo">
@@ -376,11 +529,19 @@
                 </div>
             </div>
             <p class="footer-tagline">Building the future of business leaders</p>
-            <a class="footer-social" href="#" aria-label="Facebook" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
-            </a>
+            <div class="footer-social-row">
+               
+            </div>
         </div>
 
+        <div class="footer-links">
+            <h4>Social Links</h4>
+            <a href="https://www.facebook.com/SCBusinessAndAccountancy" target="_blank" rel="noopener">SBA Facebook Page</a>
+            <a href="https://www.facebook.com/SCJPIA" target="_blank" rel="noopener">JPIA Facebook Page</a>
+            <a href="https://www.facebook.com/SCJBEX" target="_blank" rel="noopener">JBEX Facebook Page</a>
+            <a href="https://www.southlandcollege.edu.ph/" target="_blank" rel="noopener">Southland College Website</a>
+        </div>
+        
         <div>
             <h4>Contact Info</h4>
             <div class="footer-item">
@@ -389,11 +550,11 @@
             </div>
             <div class="footer-item">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-                <span>(034) 793 3543</span>
+                <span>(034) 4713 280</span>
             </div>
             <div class="footer-item">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a1 1 0 0 1 1 1v.5l-11 7-11-7V5a1 1 0 0 1 1-1zm-1 4.2 11 7 11-7V19a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg>
-                <span>SBA@southlandcollege.edu.ph</span>
+                <span>cherry.lopez@southlandcollege.edu.ph</span>
             </div>
             <div class="footer-item">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm0 21.5a9.5 9.5 0 1 1 0-19 9.5 9.5 0 0 1 0 19zM12.8 6h-2v7l5.2 3.1 1-1.6-4.2-2.5z"/></svg>
@@ -403,16 +564,10 @@
 
         <div class="footer-links">
             <h4>Quick Links</h4>
+            <a href="about.html#faq">FAQ's</a>
             <a href="about.html">About</a>
-            <a href="admission.html">Contact Inquiry Form</a>
-        </div>
-
-        <div class="footer-links">
-            <h4>Resources</h4>
-            <a href="about.html">FAQ's</a>
+            <a href="#contact">Contact Inquiry Form</a>
             <a href="gallery.html">Gallery</a>
-            <a href="about.html">Documents</a>
-            <a href="about.html">Reference</a>
         </div>
     </div>
 </footer>
@@ -433,26 +588,202 @@
             event.currentTarget.classList.add('active');
         }
 
-        const nav = document.getElementById('nav'), mb = document.getElementById('menu');
-        mb.addEventListener('click', () => { const o = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', o); });
+    </script>
+    <script>
+    /* Admission page: contact pop-up, smooth scroll to form, 2-step enrollment */
+    (function () {
+        var d = document, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var $ = function (s, r) { return (r || d).querySelector(s); };
 
-        // Dark / Light Theme Toggle Script
-        const themeBtn = document.getElementById('theme-toggle');
-        const currentTheme = localStorage.getItem('theme');
-
-        if (currentTheme === 'dark') {
-            document.body.classList.add('dark-theme');
-            themeBtn.textContent = '☀️ Light';
-        } else {
-            themeBtn.textContent = '🌙 Dark';
+        function burst(host) {
+            if (reduce || !host) return;
+            var cols = ['#4054F5', '#FFD700', '#16a34a', '#f97316', '#60a5fa'];
+            for (var i = 0; i < 18; i++) {
+                var a = (i / 18) * Math.PI * 2 + Math.random() * .4, r = 55 + Math.random() * 45, s = d.createElement('i');
+                s.style.setProperty('--x', Math.cos(a) * r + 'px');
+                s.style.setProperty('--y', Math.sin(a) * r + 'px');
+                s.style.background = cols[i % cols.length];
+                s.style.animationDelay = '.65s';
+                s.style.opacity = '0';
+                host.appendChild(s);
+                (function (n) { setTimeout(function () { n.remove(); }, 1800); })(s);
+            }
+        }
+        function playOk(panel) {
+            panel.classList.remove('is-ok'); void panel.offsetWidth; panel.classList.add('is-ok');
+            burst($('.burst', panel));
         }
 
-        themeBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-theme');
-            const isDark = document.body.classList.contains('dark-theme');
-            themeBtn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        /* ---------- Contact pop-up ---------- */
+        var cm = $('#contact-modal'), card = $('#cm-card'), form = $('#cm-form'), ok = $('#cm-ok'), formPanel = $('#cm-form-panel');
+        var lastFocus, autoTimer, tickTimer;
+
+        function openCm(trigger) {
+            lastFocus = trigger || d.activeElement;
+            clearTimeout(autoTimer); clearInterval(tickTimer);
+            ok.hidden = true; ok.classList.remove('is-ok'); formPanel.hidden = false; form.reset();
+            [].forEach.call(form.querySelectorAll('.bad'), function (n) { n.classList.remove('bad'); });
+            var dx = 0, dy = 40, ox = '50%', oy = '50%';
+            if (trigger && trigger.getBoundingClientRect) {
+                var b = trigger.getBoundingClientRect();
+                dx = (b.left + b.width / 2) - innerWidth / 2; dy = (b.top + b.height / 2) - innerHeight / 2;
+                ox = 'calc(50% + ' + dx + 'px)'; oy = 'calc(50% + ' + dy + 'px)';
+            }
+            cm.style.setProperty('--dx', dx + 'px'); cm.style.setProperty('--dy', dy + 'px');
+            card.style.setProperty('--ox', ox); card.style.setProperty('--oy', oy);
+            cm.classList.remove('closing'); cm.classList.add('open'); cm.setAttribute('aria-hidden', 'false');
+            d.body.classList.add('cm-lock');
+            setTimeout(function () { var f = $('#cm-email'); if (f && cm.classList.contains('open')) f.focus({ preventScroll: true }); }, reduce ? 0 : 650);
+        }
+        function closeCm() {
+            if (!cm.classList.contains('open')) return;
+            clearTimeout(autoTimer); clearInterval(tickTimer);
+            cm.classList.remove('open'); cm.classList.add('closing');
+            d.body.classList.remove('cm-lock');
+            cm.setAttribute('aria-hidden', 'true');
+            if (location.hash === '#contact') history.replaceState(null, '', location.pathname + location.search);
+            setTimeout(function () { cm.classList.remove('closing'); }, reduce ? 0 : 300);
+            if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+        }
+        d.addEventListener('click', function (e) {
+            var t = e.target.closest && e.target.closest('[data-open-contact], #open-contact');
+            if (t) { e.preventDefault(); openCm(t); return; }
+            if (e.target.closest && e.target.closest('#contact-modal [data-close]')) closeCm();
         });
+        d.addEventListener('keydown', function (e) {
+            if (!cm.classList.contains('open')) return;
+            if (e.key === 'Escape') { closeCm(); return; }
+            if (e.key === 'Tab') {
+                var f = [].filter.call(card.querySelectorAll('a[href],button,input,textarea'), function (n) { return n.offsetParent !== null; });
+                if (!f.length) return;
+                var first = f[0], last = f[f.length - 1];
+                if (e.shiftKey && d.activeElement === first) { e.preventDefault(); last.focus(); }
+                else if (!e.shiftKey && d.activeElement === last) { e.preventDefault(); first.focus(); }
+            }
+        });
+        // footer "Contact Inquiry Form" link -> admission.html#contact
+        function checkHash() { if (location.hash === '#contact') openCm($('#open-contact')); }
+        window.addEventListener('hashchange', checkHash);
+        setTimeout(checkHash, 400);
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var em = $('#cm-email'), ms = $('#cm-msg'), bad = null;
+            [em, ms].forEach(function (f) {
+                var g = f.parentNode; g.classList.remove('bad');
+                if (!f.checkValidity() || !f.value.trim()) { g.classList.add('bad'); bad = bad || f; }
+            });
+            if (bad) { bad.focus(); return; }
+            var btn = $('#cm-send'); btn.classList.add('busy');
+            setTimeout(function () {
+                btn.classList.remove('busy');
+                $('#cm-ok-mail').textContent = em.value.trim();
+                formPanel.hidden = true; ok.hidden = false; card.scrollTop = 0;
+                playOk(ok);
+                var left = 5, cnt = $('#cm-count');
+                cnt.textContent = 'Closing automatically in 5s';
+                tickTimer = setInterval(function () { left--; if (left > 0) cnt.textContent = 'Closing automatically in ' + left + 's'; }, 1000);
+                autoTimer = setTimeout(closeCm, 5800);
+            }, reduce ? 0 : 750);
+        });
+        form.addEventListener('input', function (e) { var g = e.target.parentNode; if (g) g.classList.remove('bad'); });
+
+        /* ---------- Apply Online Form: smooth scroll + 2s highlight ---------- */
+        var ec = $('#enroll-card'), hlTimer;
+        var applyLink = $('#go-apply');
+        if (applyLink) applyLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            ec.classList.remove('rv'); ec.classList.add('in');
+            ec.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+            clearTimeout(hlTimer); ec.classList.remove('is-hl');
+            hlTimer = setTimeout(function () {
+                void ec.offsetWidth; ec.classList.add('is-hl');
+                hlTimer = setTimeout(function () { ec.classList.remove('is-hl'); }, 2000);
+            }, reduce ? 0 : 750);
+        });
+
+        /* ---------- 2-step enrollment ---------- */
+        var ef = $('#enroll-form'), steps = [].slice.call(ef.querySelectorAll('.enr-step')), cur = 0;
+        var main = $('.enr-main'), done = $('#enr-done'), sub = $('#enr-sub'), pb2 = $('#pb2');
+        var drop = $('#dropzone'), file = $('#id-file'), dzText = $('#dz-text'), dzErr = $('#dz-error');
+        var dzDefault = dzText.innerHTML;
+
+        function check(scope) {
+            var fields = [].slice.call(scope.querySelectorAll('input,select')).filter(function (f) { return f.type !== 'file'; });
+            fields.forEach(function (f) { f.classList.remove('bad'); });
+            for (var i = 0; i < fields.length; i++) {
+                if (!fields[i].checkValidity()) { fields[i].classList.add('bad'); fields[i].reportValidity(); fields[i].focus(); return false; }
+            }
+            return true;
+        }
+        ef.addEventListener('input', function (e) { e.target.classList && e.target.classList.remove('bad'); });
+        ef.addEventListener('change', function (e) { e.target.classList && e.target.classList.remove('bad'); });
+
+        function go(n) {
+            var dir = n > cur ? 'in-r' : 'in-l';
+            steps[cur].hidden = true;
+            cur = n;
+            steps[cur].hidden = false;
+            steps[cur].classList.remove('in-r', 'in-l'); void steps[cur].offsetWidth; steps[cur].classList.add(dir);
+            pb2.classList.toggle('active', cur === 1);
+            sub.textContent = cur === 0 ? 'CHED-Compliant Data Gathering • Step 1 of 2' : 'Academic Background & ID Verification • Step 2 of 2';
+            ec.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        }
+        $('#enr-next').addEventListener('click', function () { if (check(steps[0])) go(1); });
+        $('#enr-back').addEventListener('click', function () { go(0); });
+        $('#enr-cancel').addEventListener('click', function () { resetForm(); });
+
+        function setFile(f) {
+            dzErr.textContent = ''; drop.classList.remove('bad');
+            if (!f) { drop.classList.remove('has-file'); dzText.innerHTML = dzDefault; return false; }
+            var okType = /\.(pdf|jpe?g|png)$/i.test(f.name);
+            if (!okType || f.size > 5 * 1024 * 1024) {
+                file.value = ''; drop.classList.remove('has-file'); dzText.innerHTML = dzDefault;
+                dzErr.textContent = !okType ? 'Please upload a PDF, JPG or PNG file.' : 'File is too large. Max size is 5MB.';
+                drop.classList.add('bad'); return false;
+            }
+            drop.classList.add('has-file'); dzText.textContent = '\u2713 ' + f.name; return true;
+        }
+        file.addEventListener('change', function () { setFile(file.files[0]); });
+        ['dragenter', 'dragover'].forEach(function (t) { drop.addEventListener(t, function (e) { e.preventDefault(); drop.classList.add('drag'); }); });
+        ['dragleave', 'drop'].forEach(function (t) { drop.addEventListener(t, function (e) { e.preventDefault(); drop.classList.remove('drag'); }); });
+        drop.addEventListener('drop', function (e) {
+            var f = e.dataTransfer && e.dataTransfer.files[0];
+            if (f) { try { var dt = new DataTransfer(); dt.items.add(f); file.files = dt.files; } catch (err) { } setFile(f); }
+        });
+
+        ef.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (cur === 0) { if (check(steps[0])) go(1); return; }
+            if (!check(steps[1])) return;
+            if (!file.files[0]) { dzErr.textContent = 'Please upload a clear photo of your valid ID.'; drop.classList.remove('bad'); void drop.offsetWidth; drop.classList.add('bad'); return; }
+            var btn = $('#enr-submit'), label = $('span', btn);
+            btn.classList.add('busy'); label.textContent = 'Submitting...';
+            setTimeout(function () {
+                btn.classList.remove('busy'); label.textContent = 'Submit Enrollment Application';
+                var prog = $('#program'), now = new Date();
+                $('#d-id').textContent = 'SCA-' + now.getFullYear() + '-' + String(Math.floor(Math.random() * 90000) + 10000);
+                $('#d-date').textContent = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                $('#d-prog').textContent = prog.options[prog.selectedIndex].text;
+                main.classList.add('leaving');
+                setTimeout(function () {
+                    main.hidden = true; main.classList.remove('leaving');
+                    done.hidden = false; playOk(done);
+                    ec.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+                }, reduce ? 0 : 340);
+            }, reduce ? 0 : 1100);
+        });
+
+        function resetForm() {
+            ef.reset(); setFile(null); file.value = '';
+            [].forEach.call(ef.querySelectorAll('.bad'), function (n) { n.classList.remove('bad'); });
+            var n = $('.enroll-note', ef); if (n) n.remove();
+            done.hidden = true; done.classList.remove('is-ok'); main.hidden = false;
+            steps[cur].hidden = true; cur = 1; go(0);
+            ec.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        }
+        $('#enr-done-btn').addEventListener('click', resetForm);
+    })();
     </script>
 </body>
 

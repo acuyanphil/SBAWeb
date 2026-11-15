@@ -12,16 +12,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/SBA%202%20(1).png">
+    <link rel="apple-touch-icon" href="../images/SBA%202%20(1).png">
+    <link rel="stylesheet" href="../styles/enhancements.css">
+    <script>(function(r){r.classList.add('js');try{if(localStorage.getItem('theme')==='dark')r.classList.add('pre-dark');if(!sessionStorage.getItem('sba-intro')){r.classList.add('intro');sessionStorage.setItem('sba-intro','1')}}catch(e){}})(document.documentElement);</script>
+    <script src="../site.js" defer></script>
 </head>
 
 <body>
     <!-- TOP ANNOUNCEMENT / UTILITY BAR -->
-    <div class="top-bar">
+  <div class="top-bar">
         <div class="wrap top-bar-wrap">
-            <span>Direct Announcement</span>
+            <span>Welcome to Southland College SBA Department Website</span>
             <div class="top-contact">
-                <span>📞 (034) 7933543</span>
-                <span>✉️ Southland College - School of Business and Accountancy</span>
+                <span>📞 (034) 4713 280</span>
+                <span>✉️ cherry.lopez@southlandcollege.edu.ph</span>
             </div>
         </div>
     </div>
@@ -170,6 +175,77 @@
                             <p>Program Head - BSBA</p>
                         </div>
                     </div>
+
+                    <!-- Faculty row (4) -->
+                    <div class="staff-row faculty quad">
+                        <div class="staff-card">
+                            <div class="staff-avatar">
+                                <img src="../images/Logo.svg (1).jpg" alt="Atty. Melvin P. Baylon" loading="lazy">
+                            </div>
+                            <h3>Atty. Melvin P. Baylon</h3>
+                            <p>Faculty Member</p>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-avatar">
+                                <img src="../images/mariel ann.png" alt="Mariel Ann L. Guiljon, CPA" loading="lazy">
+                            </div>
+                            <h3>Mariel Ann L. Guiljon, CPA</h3>
+                            <p>Faculty Member</p>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-avatar">
+                                <img src="../images/Logo.svg (1).jpg" alt="Angemar T. Malala" loading="lazy">
+                            </div>
+                            <h3>Angemar T. Malala</h3>
+                            <p>Faculty Member</p>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-avatar">
+                                <img src="../images/Logo.svg (1).jpg" alt="Allan V. Arellano" loading="lazy">
+                            </div>
+                            <h3>Allan V. Arellano</h3>
+                            <p>Faculty Member</p>
+                        </div>
+                    </div>
+
+                    <!-- Faculty row (5) -->
+                    <div class="staff-row faculty penta">
+                        <div class="staff-card">
+                            <div class="staff-avatar">
+                                <img src="../images/Logo.svg (1).jpg" alt="Jan Eduard J. Irog" loading="lazy">
+                            </div>
+                            <h3>Jan Eduard J. Irog</h3>
+                            <p>Faculty Member</p>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-avatar">
+                                <img src="../images/Logo.svg (1).jpg" alt="Nixsun D. Casuncad" loading="lazy">
+                            </div>
+                            <h3>Nixsun D. Casuncad</h3>
+                            <p>Faculty Member</p>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-avatar">
+                                <img src="../images/sir rene.png" alt="Rene T. Talaquines, PhD" loading="lazy">
+                            </div>
+                            <h3>Rene T. Talaquines, PhD</h3>
+                            <p>Faculty Member</p>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-avatar">
+                                <img src="../images/sir joey.png" alt="Joey B. Orcena" loading="lazy">
+                            </div>
+                            <h3>Joey B. Orcena</h3>
+                            <p>Faculty Member</p>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-avatar">
+                                <img src="../images/Logo.svg (1).jpg" alt="Adrian O. Rival, CPA" loading="lazy">
+                            </div>
+                            <h3>Adrian O. Rival, CPA</h3>
+                            <p>Faculty Member</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- ACCREDITATION CERTIFICATE -->
@@ -182,97 +258,236 @@
                         <button class="btn-certificate" id="view-cert-btn">View Certificate</button>
                     </div>
                 </div>
-                <!-- CERTIFICATE FLOATING MODAL -->
+                <!-- FREQUENTLY ASKED QUESTIONS -->
+                <div class="faq-section" id="faq">
+                    <h2 class="section-center-heading">Frequently Asked Questions</h2>
+                    <p class="faq-intro">Quick answers about our programs, admission, student life, and accreditation.</p>
+
+                    <div class="faq-filters" role="group" aria-label="Filter questions">
+                        <button type="button" class="faq-chip is-active" data-filter="all" aria-pressed="true">All</button>
+                        <button type="button" class="faq-chip" data-filter="programs" aria-pressed="false">Programs</button>
+                        <button type="button" class="faq-chip" data-filter="admission" aria-pressed="false">Admission</button>
+                        <button type="button" class="faq-chip" data-filter="life" aria-pressed="false">Student Life</button>
+                        <button type="button" class="faq-chip" data-filter="support" aria-pressed="false">Accreditation &amp; Support</button>
+                    </div>
+
+                    <div class="faq-grid">
+            <!-- FAQ 1 -->
+            <details class="faq-card" data-cat="programs">
+                <summary>
+                    <span class="faq-text">
+                        <span class="faq-cat">Programs</span>
+                        <span class="faq-q">What undergraduate programs can I enroll in under the School of Business and Accountancy?</span>
+                    </span>
+                    <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </summary>
+                <div class="faq-body"><p>We offer undergraduate degree programs including Bachelor of Science in Accountancy (BSA), Bachelor of Science in Business Administration (BSBA) with majors in Marketing Management and Financial Management.</p></div>
+            </details>
+            <!-- FAQ 2 -->
+            <details class="faq-card" data-cat="programs">
+                <summary>
+                    <span class="faq-text">
+                        <span class="faq-cat">Programs</span>
+                        <span class="faq-q">What can I do after graduating from BS Accountancy?</span>
+                    </span>
+                    <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </summary>
+                <div class="faq-body"><p>BS Accountancy prepares future CPAs for audit, tax advisory, financial reporting, and government regulatory oversight. Graduates can pursue corporate and private accounting, government, tax and advisory, public practice, or academia.</p></div>
+            </details>
+            <!-- FAQ 3 -->
+            <details class="faq-card" data-cat="programs">
+                <summary>
+                    <span class="faq-text">
+                        <span class="faq-cat">Programs</span>
+                        <span class="faq-q">What is the difference between the BSBA majors in Financial Management and Marketing Management?</span>
+                    </span>
+                    <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </summary>
+                <div class="faq-body"><p>Financial Management prepares you for corporate finance, banking, asset investments, and risk management, with careers in treasury, wealth management, and investment, commercial and retail banking. Marketing Management focuses on sales, brand positioning, digital campaigns, and market research, with careers in brand and product management, digital marketing, and commercial accounts.</p></div>
+            </details>
+            <!-- FAQ 4 -->
+            <details class="faq-card" data-cat="admission">
+                <summary>
+                    <span class="faq-text">
+                        <span class="faq-cat">Admission</span>
+                        <span class="faq-q">How do I apply for admission to the School of Business and Accountancy?</span>
+                    </span>
+                    <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </summary>
+                <div class="faq-body"><p>Visit the Admission page for the step-by-step process and the online enrollment form. You can also send us an inquiry first if you would like help choosing a program.</p></div>
+            </details>
+            <!-- FAQ 5 -->
+            <details class="faq-card" data-cat="admission">
+                <summary>
+                    <span class="faq-text">
+                        <span class="faq-cat">Admission</span>
+                        <span class="faq-q">Where can I find the tuition fees and scholarships?</span>
+                    </span>
+                    <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </summary>
+                <div class="faq-body"><p>The Admission page lists the tuition breakdown in its tuition tabs and has a Student Assistance &amp; Scholarships section showing the assistance available to students.</p></div>
+            </details>
+            <!-- FAQ 6 -->
+            <details class="faq-card" data-cat="admission">
+                <summary>
+                    <span class="faq-text">
+                        <span class="faq-cat">Admission</span>
+                        <span class="faq-q">Where is the SBA office and when can I visit?</span>
+                    </span>
+                    <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </summary>
+                <div class="faq-body"><p>We are at Rizal Street, Kabankalan City, Negros Occidental, 6111, open from 8am to 5pm. You can also reach us at (034) 793 3543 or SBA@southlandcollege.edu.ph.</p></div>
+            </details>
+            <!-- FAQ 7 -->
+            <details class="faq-card" data-cat="life">
+                <summary>
+                    <span class="faq-text">
+                        <span class="faq-cat">Student Life</span>
+                        <span class="faq-q">Which student organizations can I join?</span>
+                    </span>
+                    <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </summary>
+                <div class="faq-body"><p>Accountancy students can join the Junior Philippine Institute of Accountants (JPIA), while business students can join the Junior Business Executives (JBEX). Visit the Organizations page to learn what each one does.</p></div>
+            </details>
+            <!-- FAQ 8 -->
+            <details class="faq-card" data-cat="life">
+                <summary>
+                    <span class="faq-text">
+                        <span class="faq-cat">Student Life</span>
+                        <span class="faq-q">Where can I find the latest news, events, and announcements?</span>
+                    </span>
+                    <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </summary>
+                <div class="faq-body"><p>The Gallery page gathers our latest news, events, and media, including posts from the SBA, JPIA, and JBEX Facebook pages.</p></div>
+            </details>
+            <!-- FAQ 9 -->
+            <details class="faq-card" data-cat="life">
+                <summary>
+                    <span class="faq-text">
+                        <span class="faq-cat">Student Life</span>
+                        <span class="faq-q">Will I get exposure to real business practice while studying?</span>
+                    </span>
+                    <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </summary>
+                <div class="faq-body"><p>Yes. SBA works with industry partners, and student organizations such as JBEX run real-world business projects, corporate expos, and seminars that connect classroom learning to actual business practice.</p></div>
+            </details>
+            <!-- FAQ 10 -->
+            <details class="faq-card" data-cat="support">
+                <summary>
+                    <span class="faq-text">
+                        <span class="faq-cat">Accreditation &amp; Support</span>
+                        <span class="faq-q">Is the School of Business and Accountancy accredited?</span>
+                    </span>
+                    <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </summary>
+                <div class="faq-body"><p>Our institutional academic accreditation is granted by the Federation of Accrediting Agencies of the Philippines (FAAP) via the PACUCOA evaluation, under CHED CMO No. 1, s. 2005. You can view the certificate in the Accreditation Certificate section on this page.</p></div>
+            </details>
+            <!-- FAQ 11 -->
+            <details class="faq-card" data-cat="support">
+                <summary>
+                    <span class="faq-text">
+                        <span class="faq-cat">Accreditation &amp; Support</span>
+                        <span class="faq-q">Who can I talk to about my program or subjects?</span>
+                    </span>
+                    <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </summary>
+                <div class="faq-body"><p>You can approach our Department Dean, Department Secretary, or the Program Heads of BS Accountancy and BSBA. They are listed in the Department Staff section of this page.</p></div>
+            </details>
+            <!-- FAQ 12 -->
+            <details class="faq-card" data-cat="support">
+                <summary>
+                    <span class="faq-text">
+                        <span class="faq-cat">Accreditation &amp; Support</span>
+                        <span class="faq-q">How can I send an inquiry?</span>
+                    </span>
+                    <span class="faq-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                </summary>
+                <div class="faq-body"><p>Use the Contact Inquiry Form on the Admission page, call (034) 793 3543, or email SBA@southlandcollege.edu.ph. Our office hours are 8am to 5pm.</p></div>
+            </details>
+                    </div>
+
+                    <p class="faq-help">Still have a question? <a href="admission.html">Send us an inquiry</a></p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- CERTIFICATE FLOATING MODAL -->
-    <div id="cert-modal" class="cert-modal" aria-hidden="true" role="dialog">
+    <div id="cert-modal" class="cert-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cert-title">
         <div class="cert-modal-content">
-            <button class="cert-modal-close" id="close-cert-btn" aria-label="Close modal">&times;</button>
-            <img src="../images/accreditation-certificate.png" alt="PACUCOA Accreditation Candidate Status Certificate"
-                class="cert-modal-img">
+            <div class="cert-head">
+                <div>
+                    <span class="cert-eyebrow">Accreditation</span>
+                    <h3 id="cert-title">Institutional Academic Accreditation</h3>
+                </div>
+                <button class="cert-modal-close" id="close-cert-btn" aria-label="Close certificate">&times;</button>
+            </div>
+            <div class="cert-frame">
+                <img src="../images/accreditation-certificate.png" alt="PACUCOA Accreditation Candidate Status Certificate" class="cert-modal-img">
+            </div>
+            <p class="cert-foot">FAAP via PACUCOA &middot; CHED CMO No. 1, s. 2005 &middot; Press Esc to close</p>
         </div>
     </div>
 
     <!-- FOOTER -->
 
- <!-- FREQUENTLY ASKED QUESTIONS -->
-    <div class="faq-section">
-        <h2 class="section-center-heading">Frequently Asked Questions</h2>
- 
-        <div class="faq-grid">
-            <!-- FAQ 1 -->
-            <details class="faq-card">
-                <summary>
-                    <span>What undergraduate programs can I enroll in under the School of Business and Accountancy?</span>
-                    <span class="faq-arrow">∨</span>
-                </summary>
-                <p>We offer undergraduate degree programs including Bachelor of Science in Accountancy (BSA), Bachelor of Science in Business Administration (BSBA) with majors in Marketing Management and Financial Management.</p>
-            </details>
- 
-            <!-- FAQ 2 -->
-            <details class="faq-card">
-                <summary>
-                    <span>What undergraduate programs can I enroll in under the School of Business and Accountancy?</span>
-                    <span class="faq-arrow">∨</span>
-                </summary>
-                <p>We offer undergraduate degree programs including Bachelor of Science in Accountancy (BSA), Bachelor of Science in Business Administration (BSBA) with majors in Marketing Management and Financial Management.</p>
-            </details>
- 
-            <!-- FAQ 3 -->
-            <details class="faq-card">
-                <summary>
-                    <span>What undergraduate programs can I enroll in under the School of Business and Accountancy?</span>
-                    <span class="faq-arrow">∨</span>
-                </summary>
-                <p>We offer undergraduate degree programs including Bachelor of Science in Accountancy (BSA), Bachelor of Science in Business Administration (BSBA) with majors in Marketing Management and Financial Management.</p>
-            </details>
- 
-            <!-- FAQ 4 -->
-            <details class="faq-card">
-                <summary>
-                    <span>What undergraduate programs can I enroll in under the School of Business and Accountancy?</span>
-                    <span class="faq-arrow">∨</span>
-                </summary>
-                <p>We offer undergraduate degree programs including Bachelor of Science in Accountancy (BSA), Bachelor of Science in Business Administration (BSBA) with majors in Marketing Management and Financial Management.</p>
-            </details>
- 
-            <!-- FAQ 5 -->
-            <details class="faq-card">
-                <summary>
-                    <span>What undergraduate programs can I enroll in under the School of Business and Accountancy?</span>
-                    <span class="faq-arrow">∨</span>
-                </summary>
-                <p>We offer undergraduate degree programs including Bachelor of Science in Accountancy (BSA), Bachelor of Science in Business Administration (BSBA) with majors in Marketing Management and Financial Management.</p>
-            </details>
- 
-            <!-- FAQ 6 -->
-            <details class="faq-card">
-                <summary>
-                    <span>What undergraduate programs can I enroll in under the School of Business and Accountancy?</span>
-                    <span class="faq-arrow">∨</span>
-                </summary>
-                <p>We offer undergraduate degree programs including Bachelor of Science in Accountancy (BSA), Bachelor of Science in Business Administration (BSBA) with majors in Marketing Management and Financial Management.</p>
-            </details>
-        </div>
-    </div>
- 
-<!-- ===================== FAQ: JAVASCRIPT (optional: one card open at a time) ===================== -->
+<!-- FAQ: smooth accordion + category filter -->
 <script>
-    document.querySelectorAll('.faq-card').forEach(card => {
-        card.addEventListener('toggle', () => {
-            if (card.open) {
-                document.querySelectorAll('.faq-card').forEach(other => {
-                    if (other !== card) other.open = false;
-                });
-            }
+(function () {
+    var grid = document.querySelector('.faq-grid');
+    if (!grid) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.faq-card'));
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.faq-chip'));
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function animate(card, toOpen) {
+        var body = card.querySelector('.faq-body');
+        var startH = card.open ? body.offsetHeight : 0;
+        if (card._a) card._a.cancel();
+        if (toOpen) { card.open = true; card.classList.add('is-open'); }
+        else { card.classList.remove('is-open'); }
+        var endH = toOpen ? body.scrollHeight : 0;
+        if (reduce) { if (!toOpen) card.open = false; return; }
+        card._a = body.animate(
+            [{ height: startH + 'px', opacity: toOpen ? (startH ? 1 : 0) : 1 },
+             { height: endH + 'px', opacity: toOpen ? 1 : 0 }],
+            { duration: toOpen ? 420 : 300, easing: 'cubic-bezier(.2,.8,.2,1)' });
+        card._a.onfinish = function () { card._a = null; if (!toOpen) card.open = false; };
+        card._a.oncancel = function () { card._a = null; };
+    }
+
+    cards.forEach(function (card) {
+        card.querySelector('summary').addEventListener('click', function (e) {
+            e.preventDefault();
+            var toOpen = !card.classList.contains('is-open');
+            if (toOpen) cards.forEach(function (o) { if (o !== card && o.classList.contains('is-open')) animate(o, false); });
+            animate(card, toOpen);
+            if (toOpen) setTimeout(function () {
+                var r = card.getBoundingClientRect();
+                if (r.bottom > window.innerHeight - 12) card.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            }, 440);
         });
     });
+
+    chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+            chips.forEach(function (x) { x.classList.toggle('is-active', x === chip); x.setAttribute('aria-pressed', x === chip); });
+            var f = chip.getAttribute('data-filter'), i = 0;
+            cards.forEach(function (c) {
+                if (c._a) c._a.cancel();
+                c.open = false; c.classList.remove('is-open', 'rv', 'in', 'faq-pop');
+                var show = f === 'all' || c.getAttribute('data-cat') === f;
+                c.hidden = !show;
+                if (show) { c.style.setProperty('--i', i++); void c.offsetWidth; c.classList.add('faq-pop'); }
+            });
+        });
+    });
+})();
 </script>
 
 
     <!-- FOOTER -->
-  <footer>
+<footer>
     <div class="wrap">
         <div>
             <div class="logo">
@@ -283,11 +498,19 @@
                 </div>
             </div>
             <p class="footer-tagline">Building the future of business leaders</p>
-            <a class="footer-social" href="#" aria-label="Facebook" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
-            </a>
+            <div class="footer-social-row">
+               
+            </div>
         </div>
 
+        <div class="footer-links">
+            <h4>Social Links</h4>
+            <a href="https://www.facebook.com/SCBusinessAndAccountancy" target="_blank" rel="noopener">SBA Facebook Page</a>
+            <a href="https://www.facebook.com/SCJPIA" target="_blank" rel="noopener">JPIA Facebook Page</a>
+            <a href="https://www.facebook.com/SCJBEX" target="_blank" rel="noopener">JBEX Facebook Page</a>
+            <a href="https://www.southlandcollege.edu.ph/" target="_blank" rel="noopener">Southland College Website</a>
+        </div>
+        
         <div>
             <h4>Contact Info</h4>
             <div class="footer-item">
@@ -296,11 +519,11 @@
             </div>
             <div class="footer-item">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-                <span>(034) 793 3543</span>
+                <span>(034) 4713 280</span>
             </div>
             <div class="footer-item">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a1 1 0 0 1 1 1v.5l-11 7-11-7V5a1 1 0 0 1 1-1zm-1 4.2 11 7 11-7V19a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg>
-                <span>SBA@southlandcollege.edu.ph</span>
+                <span>cherry.lopez@southlandcollege.edu.ph</span>
             </div>
             <div class="footer-item">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm0 21.5a9.5 9.5 0 1 1 0-19 9.5 9.5 0 0 1 0 19zM12.8 6h-2v7l5.2 3.1 1-1.6-4.2-2.5z"/></svg>
@@ -310,70 +533,45 @@
 
         <div class="footer-links">
             <h4>Quick Links</h4>
+            <a href="#faq">FAQ's</a>
             <a href="about.html">About</a>
-            <a href="admission.html">Contact Inquiry Form</a>
-        </div>
-
-        <div class="footer-links">
-            <h4>Resources</h4>
-            <a href="about.html">FAQ's</a>
+            <a href="admission.html#contact">Contact Inquiry Form</a>
             <a href="gallery.html">Gallery</a>
-            <a href="about.html">Documents</a>
-            <a href="about.html">Reference</a>
         </div>
     </div>
 </footer>
 
     <script>
-        const nav = document.getElementById('nav'), mb = document.getElementById('menu');
-        mb.addEventListener('click', () => { const o = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', o); });
+        // Certificate modal (animation is handled in about.css)
+        (function () {
+            var modal = document.getElementById('cert-modal');
+            var openBtn = document.getElementById('view-cert-btn');
+            var closeBtn = document.getElementById('close-cert-btn');
+            var lastFocus = null;
 
-        // Dark / Light Theme Toggle Script
-        const themeBtn = document.getElementById('theme-toggle');
-        const currentTheme = localStorage.getItem('theme');
+            function openCert() {
+                lastFocus = document.activeElement;
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                setTimeout(function () { closeBtn.focus(); }, 60);
+            }
+            function closeCert() {
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                if (lastFocus && lastFocus.focus) lastFocus.focus();
+            }
 
-        if (currentTheme === 'dark') {
-            document.body.classList.add('dark-theme');
-            themeBtn.textContent = '☀️ Light';
-        } else {
-            themeBtn.textContent = '🌙 Dark';
-        }
-
-        themeBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-theme');
-            const isDark = document.body.classList.contains('dark-theme');
-            themeBtn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-        // Certificate Modal
-        const certModal = document.getElementById('cert-modal');
-        const openCertBtn = document.getElementById('view-cert-btn');
-        const closeCertBtn = document.getElementById('close-cert-btn');
-
-        function openCert() {
-            certModal.classList.add('open');
-            certModal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeCert() {
-            certModal.classList.remove('open');
-            certModal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        }
-
-        openCertBtn.addEventListener('click', openCert);
-        closeCertBtn.addEventListener('click', closeCert);
-
-        // Click the dark background to close
-        certModal.addEventListener('click', (e) => {
-            if (e.target === certModal) closeCert();
-        });
-
-        // Esc key to close
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && certModal.classList.contains('open')) closeCert();
-        });
+            openBtn.addEventListener('click', openCert);
+            closeBtn.addEventListener('click', closeCert);
+            modal.addEventListener('click', function (e) { if (e.target === modal) closeCert(); });
+            document.addEventListener('keydown', function (e) {
+                if (!modal.classList.contains('open')) return;
+                if (e.key === 'Escape') closeCert();
+                if (e.key === 'Tab') { e.preventDefault(); closeBtn.focus(); }
+            });
+        })();
     </script>
 </body>
 
