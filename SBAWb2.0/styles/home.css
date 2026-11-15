@@ -2,6 +2,7 @@
    Home page: hero, stat cards, featured program cards (.dcard), promo video, hero buttons. */
 
 /* Hero Section */
+
 .hero {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
@@ -62,6 +63,12 @@
 .stat span {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.85);
+}
+
+.divider {
+    display: block;
+    width: 100%;
+    margin: 100px 0;
 }
 
 /* Program Cards */
@@ -480,7 +487,7 @@ body.dark-theme .dcard>div:first-child,
 .dcard p {
     font-size: 0.95rem !important;
     line-height: 1.5 !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 100px !important;
 }
 
 /* --- Footer Link with Divider Line --- */
@@ -647,5 +654,93 @@ body.dark-theme .hero .btn:last-child,
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+
+
+/* =========================================================
+   HOME: LATEST NEWS, "WE OFFER!" HEADING, PROMO VIDEO TEXT
+   ========================================================= */
+.home-news {
+    margin-bottom: 56px;
+}
+
+.news-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-bottom: 20px;
+}
+
+.news-head .gal-heading {
+    margin: 0;
+}
+
+.news-all {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3b46ff;
+}
+
+.news-all:hover {
+    text-decoration: underline;
+}
+
+body.dark-theme .news-all {
+    color: #8b93ff;
+}
+
+.we-offer {
+    margin: 0 0 20px;
+}
+
+.video-feature {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr);
+    gap: clamp(20px, 4vw, 48px);
+    align-items: center;
+}
+
+.video-copy h2 {
+    font-size: clamp(26px, 3.4vw, 38px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 8px 0 12px;
+    color: #0f172a;
+}
+
+.video-copy h6 {
+    font-size: clamp(15px, 1.6vw, 18px);
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
+    color: #475569;
+}
+
+body.dark-theme .video-copy h2 {
+    color: #f8fafc;
+}
+
+body.dark-theme .video-copy h6 {
+    color: #cbd5e1;
+}
+
+.video-feature .video-container {
+    max-width: none;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .video-feature {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-news {
+        margin-bottom: 32px;
+    }
 }
 

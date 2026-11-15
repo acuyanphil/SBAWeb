@@ -1,0 +1,1191 @@
+/* =====================================================================
+   Southland College - SBA  |  enhancements.css
+   Load this file LAST on every page (after global.css and the page CSS).
+   It only ADDS: motion, hover effects, stroke + shadow on cards,
+   dark-mode contrast fixes and responsive rules.
+   The colours, fonts and layout of the existing design are unchanged.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. TOKENS
+   --------------------------------------------------------------------- */
+:root {
+    --ease: cubic-bezier(.22, .8, .24, 1);
+    --txt: #0f172a;
+    --txt-soft: #475569;
+    --stroke: #c7d0ff;
+    --stroke-strong: #4054F5;
+    --spot: rgba(64, 84, 245, .13);
+    --shadow-card: 0 1px 2px rgba(15, 23, 42, .06), 0 10px 26px -10px rgba(64, 84, 245, .28);
+    --shadow-card-hover: 0 2px 4px rgba(15, 23, 42, .08), 0 24px 44px -14px rgba(64, 84, 245, .45);
+}
+
+body.dark-theme {
+    --txt: #f1f5f9;
+    --txt-soft: #cbd5e1;
+    --stroke: rgba(139, 155, 255, .38);
+    --stroke-strong: #8b9bff;
+    --spot: rgba(255, 255, 255, .13);
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, .45), 0 12px 28px -10px rgba(0, 0, 0, .65);
+    --shadow-card-hover: 0 0 0 1px rgba(139, 155, 255, .4), 0 24px 46px -12px rgba(64, 84, 245, .6);
+    color-scheme: dark;
+}
+
+/* ---------------------------------------------------------------------
+   2. SMOOTH SCROLLING + BASE TEXT
+   --------------------------------------------------------------------- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(92px + env(safe-area-inset-top, 0px));
+    overflow-x: hidden;
+}
+
+/* prevents a white flash on page load when the saved theme is dark */
+html.pre-dark body:not(.dark-theme) {
+    background: #111827;
+}
+
+/* Light mode body text used to inherit #fcfcfc (almost white). */
+body {
+    color: var(--txt);
+}
+
+h2,
+h3 {
+    color: var(--txt);
+}
+
+img,
+video,
+svg {
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+    overflow-wrap: break-word;
+}
+
+/* ---------------------------------------------------------------------
+   3. LOAD / SCROLL / PAGE-TRANSITION ANIMATIONS
+   --------------------------------------------------------------------- */
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(26px) scale(.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes loadbar {
+    0% {
+        opacity: 1;
+        transform: scaleX(0);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scaleX(1);
+    }
+}
+
+/* the whole page eases in */
+.page.on {
+    animation: pageIn .6s var(--ease) both;
+}
+
+/* elements tagged by site.js reveal gently, one after another */
+html.js .rv:not(.in) {
+    opacity: 0;
+    transform: translateY(26px) scale(.985);
+}
+
+html.js .rv.in {
+    animation: rise .8s var(--ease) var(--d, 0ms) backwards;
+}
+
+/* header drops in once per visit */
+html.intro header {
+    animation: dropIn .7s var(--ease) both;
+}
+
+html.intro .top-bar {
+    animation: fadeDown .6s ease both;
+}
+
+/* thin loading bar at the top (royal blue to gold, like the hero border) */
+#page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #4169E1, #FFD700);
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0;
+    z-index: 100000;
+    pointer-events: none;
+}
+
+#page-loader.run {
+    animation: loadbar .9s var(--ease) both;
+}
+
+#page-loader.leave {
+    opacity: 1;
+    transform: scaleX(.78);
+    transition: transform .7s ease-out;
+}
+
+/* leaving a page: content fades up and away, header stays put */
+body.is-leaving main,
+body.is-leaving footer {
+    opacity: 0;
+    transform: translateY(-12px);
+    filter: blur(2px);
+    transition: opacity .3s ease, transform .3s ease, filter .3s ease;
+}
+
+/* smooth light/dark switch (class is added by site.js for ~0.45s) */
+html.theme-anim *,
+html.theme-anim *::before,
+html.theme-anim *::after {
+    transition: background-color .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease, fill .35s ease !important;
+}
+
+/* ---------------------------------------------------------------------
+   4. HOME: LATEST NEWS (replaces the stats) + PROMO VIDEO SPLIT
+   --------------------------------------------------------------------- */
+.home-news {
+    margin-bottom: 48px;
+}
+
+.news-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.news-head .gal-heading {
+    margin: 0;
+}
+
+.news-all {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3b46ff;
+    display: inline-block;
+    transition: transform .25s var(--ease);
+}
+
+.news-all:hover {
+    transform: translateX(4px);
+    text-decoration: underline;
+}
+
+body.dark-theme .news-all {
+    color: #8b93ff;
+}
+
+.video-feature {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr);
+    gap: clamp(20px, 4vw, 48px);
+    align-items: center;
+}
+
+.video-copy h2 {
+    font-size: clamp(26px, 3.4vw, 38px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 8px 0 12px;
+    color: var(--txt);
+}
+
+.video-copy h6 {
+    font-size: clamp(15px, 1.6vw, 18px);
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--mute);
+}
+
+.video-feature .video-container {
+    max-width: none;
+    margin: 0;
+}
+
+/* video frame: same royal-blue to gold stroke as the hero image */
+.video-feature .video-container {
+    border: 3px solid transparent !important;
+    background: linear-gradient(#000, #000) padding-box, linear-gradient(135deg, #4169E1, #FFD700) border-box !important;
+    box-shadow: var(--shadow-card) !important;
+}
+
+.hero-image {
+    box-shadow: 0 18px 40px -16px rgba(64, 84, 245, .45);
+}
+
+/* hero buttons wrap cleanly on small screens */
+.hero .btn {
+    margin: 0 10px 12px 0;
+}
+
+/* ---------------------------------------------------------------------
+   5. PROGRAMS: "pop" highlight when arriving from the home page
+   --------------------------------------------------------------------- */
+@keyframes popPick {
+    0% {
+        transform: scale(.92) translateY(18px);
+        outline: 0 solid rgba(64, 84, 245, 0);
+        outline-offset: 0;
+    }
+
+    10% {
+        transform: scale(1.06) translateY(-10px);
+        outline: 5px solid rgba(64, 84, 245, .95);
+        outline-offset: 6px;
+    }
+
+    20% {
+        transform: scale(1.035) translateY(-6px);
+    }
+
+    35% {
+        outline-color: rgba(255, 215, 0, .95);
+        outline-offset: 10px;
+    }
+
+    55% {
+        outline-color: rgba(64, 84, 245, .95);
+        outline-offset: 7px;
+    }
+
+    75% {
+        outline-color: rgba(255, 215, 0, .9);
+        outline-offset: 10px;
+    }
+
+    90% {
+        transform: scale(1.02) translateY(-3px);
+        outline: 4px solid rgba(64, 84, 245, .5);
+        outline-offset: 8px;
+    }
+
+    100% {
+        transform: none;
+        outline: 0 solid rgba(64, 84, 245, 0);
+        outline-offset: 14px;
+    }
+}
+
+@keyframes chipIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px) scale(.9);
+    }
+
+    10%,
+    85% {
+        opacity: 1;
+        transform: none;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+}
+
+.programs-grid .program-card {
+    transition: opacity .5s ease, transform .5s var(--ease), filter .5s ease, box-shadow .35s var(--ease), border-color .3s ease;
+}
+
+.programs-grid.has-focus .program-card:not(.is-picked) {
+    opacity: .45;
+    transform: scale(.97);
+    filter: saturate(.7);
+}
+
+.programs-grid .program-card.is-picked {
+    animation: popPick 3s var(--ease) both;
+    position: relative;
+    z-index: 3;
+}
+
+.program-card.is-picked .program-poster {
+    position: relative;
+}
+
+.program-card.is-picked .program-poster::after {
+    content: "Selected program";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: #FFD700;
+    color: #0f172a;
+    font-size: 12px;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+    animation: chipIn 3s ease both;
+    z-index: 2;
+}
+
+/* ---------------------------------------------------------------------
+   6. DARK MODE: contrast + consistency fixes
+      (text ~ #f1f5f9 on #111827 / #1e293b, never pure white on pure black)
+   --------------------------------------------------------------------- */
+body.dark-theme h1 {
+    color: #f8fafc;
+}
+
+body.dark-theme .pagehead,
+body.dark-theme .steps-divider {
+    border-color: #334155;
+}
+
+body.dark-theme .top-bar,
+body.dark-theme .announcement-bar {
+    background: #0f172a !important;
+    background-color: #0f172a !important;
+    color: #e2e8f0 !important;
+    border-bottom-color: #1e293b !important;
+}
+
+body.dark-theme .top-bar span,
+body.dark-theme .top-bar a {
+    color: #e2e8f0 !important;
+}
+
+/* programs */
+body.dark-theme .program-card .career-label {
+    color: #ffffff;
+}
+
+body.dark-theme .program-card .btn-curriculum {
+    background: #ffffff;
+    color: #1e3a8a;
+}
+
+body.dark-theme .program-card .btn-curriculum:hover {
+    background: #e0e7ff;
+}
+
+/* organizations modal */
+body.dark-theme .org-modal-desc {
+    color: #e2e8f0;
+}
+
+body.dark-theme .org-modal-footer {
+    border-top-color: #334155;
+}
+
+body.dark-theme .btn-close-gray {
+    background: #475569;
+}
+
+body.dark-theme .btn-close-gray:hover {
+    background: #64748b;
+}
+
+/* about */
+body.dark-theme #about h2,
+body.dark-theme #about .vm-block h2,
+body.dark-theme #about .attributes-col h2,
+body.dark-theme #about .peo-section h2,
+body.dark-theme #about .section-center-heading {
+    color: #8b9bff !important;
+}
+
+body.dark-theme #about h1 {
+    color: #f8fafc !important;
+}
+
+body.dark-theme .staff-card,
+body.dark-theme .accreditation-card,
+body.dark-theme .faq-card {
+    background: #1e293b;
+}
+
+body.dark-theme .staff-card h3,
+body.dark-theme .accreditation-card h3,
+body.dark-theme .faq-card summary {
+    color: #f1f5f9;
+}
+
+body.dark-theme .staff-card p,
+body.dark-theme .accreditation-card p,
+body.dark-theme .faq-card p,
+body.dark-theme .faq-arrow {
+    color: #cbd5e1;
+}
+
+body.dark-theme .faq-card p {
+    border-top-color: #334155;
+}
+
+body.dark-theme .staff-avatar {
+    border-color: #8b9bff;
+}
+
+/* admission */
+body.dark-theme .tuition-tab {
+    background: #1e293b;
+    color: #93c5fd;
+}
+
+body.dark-theme .tuition-tab.active {
+    background: #4054F5;
+    color: #ffffff;
+}
+
+body.dark-theme .scholarships-title,
+body.dark-theme .form-header h2 {
+    color: #f8fafc;
+}
+
+body.dark-theme .form-subtitle,
+body.dark-theme .form-group label,
+body.dark-theme .checkbox-label {
+    color: #cbd5e1;
+}
+
+body.dark-theme .privacy-link {
+    color: #93c5fd;
+}
+
+body.dark-theme .enrollment-card {
+    background: #1e293b;
+}
+
+body.dark-theme .form-group input,
+body.dark-theme .form-group select {
+    background: #0f172a;
+    border-color: #334155;
+    color: #f1f5f9;
+}
+
+body.dark-theme .form-group input::placeholder {
+    color: #64748b;
+}
+
+body.dark-theme .form-group input:focus,
+body.dark-theme .form-group select:focus,
+body.dark-theme .form-group input.input-active {
+    border-color: #8b9bff;
+    box-shadow: 0 0 0 2px #4054F5;
+}
+
+body.dark-theme .progress-bar {
+    background: #334155;
+}
+
+body.dark-theme .progress-bar.active {
+    background: #4054F5;
+}
+
+body.dark-theme .btn-cancel {
+    background: #334155;
+    color: #e2e8f0;
+    border-color: #475569;
+}
+
+body.dark-theme .btn-cancel:hover {
+    background: #475569;
+}
+
+/* ---------------------------------------------------------------------
+   7. TUITION TABLE: identical size/position in light and dark
+      (padding + row borders used to exist only in one theme)
+   --------------------------------------------------------------------- */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 10px;
+}
+
+.tuition-table {
+    width: 100%;
+    min-width: 560px;
+    table-layout: fixed;
+}
+
+.tuition-table th,
+.tuition-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e2e8f0;
+    box-sizing: border-box;
+}
+
+body.dark-theme .tuition-table th,
+body.dark-theme .tuition-table td {
+    border-bottom-color: #334155;
+}
+
+.tuition-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.tuition-content {
+    animation: fadeDown .45s var(--ease);
+}
+
+/* ---------------------------------------------------------------------
+   8. HOVER FUN (mouse devices only)
+   --------------------------------------------------------------------- */
+.btn,
+.btn-curriculum,
+.btn-certificate,
+.btn-next,
+.btn-cancel,
+.tuition-tab,
+.btn-close-gray {
+    transition: transform .25s var(--ease), box-shadow .25s ease, background-color .25s ease, color .25s ease;
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .45) 50%, transparent 70%);
+    transform: translateX(-120%);
+    pointer-events: none;
+}
+
+.btn:active,
+.btn-curriculum:active,
+.btn-certificate:active,
+.btn-next:active,
+.btn-cancel:active,
+.tuition-tab:active {
+    transform: scale(.96) !important;
+}
+
+.logo-img {
+    transition: transform .4s var(--ease);
+}
+
+.read-more {
+    display: inline-block;
+    transition: transform .25s var(--ease);
+}
+
+.news-img img,
+.program-poster img,
+.org-card .ph img,
+.hero-image img,
+.staff-avatar img {
+    transition: transform .7s var(--ease);
+}
+
+.dcard,
+.news-card,
+.program-card,
+.org-card,
+.step-card,
+.staff-card {
+    position: relative;
+}
+
+.dcard::before,
+.news-card::before,
+.program-card::before,
+.org-card::before,
+.step-card::before,
+.staff-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s ease;
+    background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), var(--spot), transparent 65%);
+    z-index: 1;
+}
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: none;
+    }
+
+    25% {
+        transform: rotate(-10deg) scale(1.12);
+    }
+
+    55% {
+        transform: rotate(8deg) scale(1.12);
+    }
+
+    80% {
+        transform: rotate(-4deg) scale(1.06);
+    }
+}
+
+.dcard-footer a .arrow {
+    display: inline-block;
+    transition: transform .3s var(--ease);
+}
+
+.attr-icon,
+.step-badge,
+.org-card .ph,
+.staff-avatar {
+    transition: transform .4s var(--ease);
+}
+
+.attribute-item {
+    transition: transform .3s var(--ease);
+}
+
+.faq-card[open] p {
+    animation: fadeDown .35s var(--ease);
+}
+
+footer .footer-links a,
+footer .footer-social svg,
+footer .footer-item svg {
+    transition: transform .25s var(--ease), opacity .2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    .btn:hover::after {
+        transform: translateX(120%);
+        transition: transform .7s ease;
+    }
+
+    .btn-curriculum:hover,
+    .btn-certificate:hover,
+    .btn-next:hover,
+    .btn-cancel:hover,
+    .tuition-tab:hover,
+    .btn-close-gray:hover {
+        transform: translateY(-2px);
+    }
+
+    .logo:hover .logo-img {
+        transform: rotate(-6deg) scale(1.08);
+    }
+
+    .read-more:hover {
+        transform: translateX(5px);
+    }
+
+    .dcard:hover::before,
+    .news-card:hover::before,
+    .program-card:hover::before,
+    .org-card:hover::before,
+    .step-card:hover::before,
+    .staff-card:hover::before {
+        opacity: 1;
+    }
+
+    .news-card:hover .news-img img,
+    .program-card:hover .program-poster img,
+    .hero-image:hover img {
+        transform: scale(1.07);
+    }
+
+    .org-card:hover .ph {
+        transform: scale(1.07) rotate(3deg);
+    }
+
+    .staff-card:hover .staff-avatar {
+        transform: scale(1.06);
+    }
+
+    .dcard:hover .dcard-icon {
+        animation: wiggle .7s var(--ease);
+    }
+
+    .dcard:hover .arrow {
+        transform: translateX(7px);
+    }
+
+    .step-card:hover .step-badge {
+        transform: scale(1.15) rotate(8deg);
+    }
+
+    .attribute-item:hover {
+        transform: translateX(6px);
+    }
+
+    .attribute-item:hover .attr-icon {
+        transform: scale(1.12) rotate(-6deg);
+    }
+
+    .badge-group .badge {
+        transition: transform .25s var(--ease), background-color .25s ease, color .25s ease;
+    }
+
+    .badge-group .badge:hover {
+        transform: translateY(-2px) scale(1.07);
+        background-color: #4054F5 !important;
+        color: #ffffff !important;
+    }
+
+    .form-group input:hover,
+    .form-group select:hover {
+        border-color: #93a3ff;
+    }
+
+    footer .footer-links a:hover {
+        transform: translateX(5px);
+    }
+
+    footer .footer-social:hover svg {
+        transform: scale(1.2) rotate(-8deg);
+    }
+
+    footer .footer-item:hover svg {
+        transform: scale(1.35);
+    }
+
+    .hero-image:hover {
+        box-shadow: 0 26px 50px -16px rgba(64, 84, 245, .6);
+    }
+}
+
+/* ---------------------------------------------------------------------
+   9. RESPONSIVE  (desktop > 1024 | tablet 601-1024 | phone <= 600)
+   --------------------------------------------------------------------- */
+@media (min-width: 1600px) {
+    .wrap {
+        max-width: 1360px;
+    }
+}
+
+/* --- hamburger menu now starts at 900px so the header never overflows --- */
+@media (max-width: 900px) {
+    .menu {
+        display: block;
+        flex: none;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        background: #4054F5;
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: max-height .4s var(--ease), opacity .3s ease, padding .3s ease;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, .25);
+    }
+
+    nav.open {
+        max-height: 420px;
+        padding: 10px 20px 16px;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    nav a {
+        padding: 13px 10px;
+        font-size: 15px;
+        border-radius: 8px;
+    }
+
+    nav a::after {
+        display: none;
+    }
+
+    nav a:hover,
+    nav a.on {
+        background: rgba(255, 255, 255, .14);
+    }
+
+    .logo {
+        flex: 1;
+        min-width: 0;
+    }
+
+    #theme-toggle {
+        flex: none;
+        white-space: nowrap;
+    }
+
+    /* hero stacks */
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 36px 0 24px;
+    }
+
+    .hero-image {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    /* promo video: text above, video below */
+    .video-feature {
+        grid-template-columns: 1fr;
+    }
+
+    /* about */
+    .about-top-grid {
+        gap: 2rem;
+    }
+
+    /* admission steps become a 2 x 2 grid, arrows hidden (badges give the order) */
+    .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        align-items: stretch;
+    }
+
+    .step-arrow {
+        display: none;
+    }
+
+    .step-card {
+        min-height: 0;
+    }
+}
+
+/* --- tablet --- */
+@media (min-width: 601px) and (max-width: 1023px) {
+
+    .grid3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* a lone last card is centred instead of left-aligned */
+    .grid3>:last-child:nth-child(odd),
+    .news-grid>:last-child:nth-child(odd),
+    .programs-grid>:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - 10px);
+        box-sizing: border-box;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1023px) {
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .news-grid>:last-child:nth-child(odd) {
+        grid-column: auto;
+        width: auto;
+    }
+}
+
+@media (max-width: 1100px) {
+    .news-card h3 {
+        font-size: 18px;
+    }
+}
+
+/* programs grid: 3 -> 2 -> 1 (global.css forces 2 cols <=1024 and 1 col <=700) */
+@media (max-width: 700px) {
+
+    .programs-grid>:last-child:nth-child(odd) {
+        width: auto;
+    }
+}
+
+/* --- phone --- */
+@media (max-width: 600px) {
+
+    .grid3,
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid3>:last-child:nth-child(odd),
+    .news-grid>:last-child:nth-child(odd) {
+        width: auto;
+        justify-self: stretch;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 24px 0 16px;
+    }
+
+    .hero .btn {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        margin: 0 0 10px;
+    }
+
+    .home-news {
+        margin-bottom: 32px;
+    }
+
+    .sec {
+        padding: 24px 0;
+    }
+
+    .news-card h3 {
+        font-size: 17px;
+    }
+
+    .section-center-heading {
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .staff-row {
+        gap: 1rem;
+    }
+
+    .staff-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .accreditation-card {
+        padding: 1.25rem;
+    }
+
+    .scholarships-card,
+    .enrollment-card {
+        max-width: 100%;
+    }
+
+    .tuition-tab {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .org-modal-footer {
+        gap: 12px;
+    }
+}
+
+/* generic safety nets: grid columns may shrink below their content */
+.dcard,
+.news-card,
+.program-card,
+.card {
+    min-width: 0;
+}
+
+.news-card h3,
+.news-card .excerpt,
+.news-meta span {
+    overflow-wrap: anywhere;
+}
+
+.faq-section {
+    padding: 0;
+    margin-bottom: 4rem;
+}
+
+.staff-row {
+    flex-wrap: wrap;
+}
+
+.form-group {
+    min-width: 0;
+}
+
+.form-group input,
+.form-group select {
+    min-width: 0;
+}
+
+.enrollment-card,
+.scholarships-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tuition-card {
+    padding: clamp(14px, 3vw, 24px);
+}
+
+.tuition-tabs {
+    flex-wrap: wrap;
+}
+
+/* organizations page: the flex column used to shrink the centred .wrap */
+#organizations>.wrap {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer .wrap>div {
+    min-width: 0;
+}
+
+.pagehead h1 {
+    overflow-wrap: anywhere;
+}
+
+#theme-toggle {
+    white-space: nowrap;
+}
+
+@media (pointer: coarse) {
+
+    .btn,
+    .btn-curriculum,
+    .btn-certificate,
+    .btn-next,
+    .btn-cancel,
+    .tuition-tab,
+    .btn-close-gray {
+        min-height: 44px;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   10. REDUCED MOTION
+   --------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    html.js .rv:not(.in) {
+        opacity: 1;
+        transform: none;
+    }
+
+    #page-loader {
+        display: none;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   11. STROKE + SHADOW ON EVERY CARD (generated; class repeated to beat old !important rules)
+   --------------------------------------------------------------------- */
+.card.card.card.card,
+.dcard.dcard.dcard.dcard,
+.news-card.news-card.news-card.news-card,
+.program-card.program-card.program-card.program-card,
+.step-card.step-card.step-card.step-card,
+.tuition-card.tuition-card.tuition-card.tuition-card,
+.scholarships-card.scholarships-card.scholarships-card.scholarships-card,
+.enrollment-card.enrollment-card.enrollment-card.enrollment-card,
+.staff-card.staff-card.staff-card.staff-card,
+.accreditation-card.accreditation-card.accreditation-card.accreditation-card,
+.faq-card.faq-card.faq-card.faq-card,
+.row.row.row.row {
+    border: 1.5px solid var(--stroke) !important;
+    box-shadow: var(--shadow-card) !important;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .3s ease,
+                background-color .35s ease, color .35s ease, opacity .5s ease, filter .5s ease !important;
+}
+
+body.dark-theme .dcard.dcard.dcard.dcard,
+.program-card.program-card.program-card.program-card {
+    border-color: rgba(255, 255, 255, .32) !important;
+}
+
+.faq-card.faq-card.faq-card.faq-card[open] {
+    border-color: var(--stroke-strong) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+.card.card.card.card:hover,
+.dcard.dcard.dcard.dcard:hover,
+.news-card.news-card.news-card.news-card:hover,
+.program-card.program-card.program-card.program-card:hover,
+.step-card.step-card.step-card.step-card:hover,
+.tuition-card.tuition-card.tuition-card.tuition-card:hover,
+.scholarships-card.scholarships-card.scholarships-card.scholarships-card:hover,
+.enrollment-card.enrollment-card.enrollment-card.enrollment-card:hover,
+.staff-card.staff-card.staff-card.staff-card:hover,
+.accreditation-card.accreditation-card.accreditation-card.accreditation-card:hover,
+.faq-card.faq-card.faq-card.faq-card:hover,
+.row.row.row.row:hover {
+        border-color: var(--stroke-strong) !important;
+        box-shadow: var(--shadow-card-hover) !important;
+    }
+.card.card.card.card:hover,
+.dcard.dcard.dcard.dcard:hover,
+.news-card.news-card.news-card.news-card:hover,
+.program-card.program-card.program-card.program-card:hover,
+.step-card.step-card.step-card.step-card:hover,
+.staff-card.staff-card.staff-card.staff-card:hover,
+.accreditation-card.accreditation-card.accreditation-card.accreditation-card:hover,
+.scholarships-card.scholarships-card.scholarships-card.scholarships-card:hover,
+.faq-card.faq-card.faq-card.faq-card:hover {
+        transform: translateY(-6px) !important;
+    }
+}

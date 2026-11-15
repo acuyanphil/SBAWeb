@@ -400,7 +400,7 @@
 /* 5. Frequently Asked Questions (FAQ) Grid */
 .faq-section {
     margin-bottom: 4rem;
-    padding: 200px;
+    padding: 0;
 }
 
 .faq-grid {
@@ -515,64 +515,527 @@ body.dark-theme #about .attribute-item>div:first-child,
     /* Pure white icon color */
     border-radius: 12px !important;
 }
-/* CERTIFICATE FLOATING MODAL */
-#cert-modal {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: 99999 !important;
-    display: none !important;
+
+/* =========================================================
+   DEPARTMENT STAFF: FACULTY ROWS (4 + 5)
+   Adjust the logo picture here:
+     --avatar-size : circle size
+     --avatar-fit  : contain (whole logo visible) | cover (fills the circle)
+     --avatar-zoom : 1 = normal, 1.2 = zoom in
+   ========================================================= */
+.staff-row.faculty {
+    --avatar-size: clamp(76px, 8vw, 96px);
+    --avatar-fit: contain;
+    --avatar-zoom: 1;
+    --avatar-bg: #ffffff;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 1.25rem;
+}
+
+.staff-row.faculty .staff-card {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    max-width: 220px;
+    padding: 1.25rem 0.9rem;
+    box-sizing: border-box;
+}
+
+.staff-row.faculty .staff-avatar {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    flex: none;
+    background: var(--avatar-bg);
+}
+
+.staff-row.faculty .staff-avatar img {
+    object-fit: var(--avatar-fit);
+    transform: scale(var(--avatar-zoom));
+}
+
+.staff-row.faculty .staff-card h3 {
+    font-size: 0.88rem;
+}
+
+@media (max-width: 999px) {
+    .staff-row.faculty .staff-card {
+        flex: 0 0 calc(50% - 0.625rem);
+        max-width: 240px;
+    }
+
+    .staff-row.faculty.penta .staff-card {
+        flex: 0 0 calc(33.333% - 0.85rem);
+    }
+}
+
+@media (max-width: 640px) {
+    .staff-row.faculty {
+        --avatar-size: 72px;
+        gap: 1rem;
+    }
+
+    .staff-row.faculty .staff-card,
+    .staff-row.faculty.penta .staff-card {
+        flex: 0 0 calc(50% - 0.5rem);
+        padding: 1rem 0.6rem;
+    }
+
+    .staff-row.faculty .staff-card h3 {
+        font-size: 0.82rem;
+    }
+
+    .staff-row.faculty .staff-card p {
+        font-size: 0.72rem;
+    }
+}
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+.faq-intro {
+    text-align: center;
+    max-width: 560px;
+    margin: -0.75rem auto 1.5rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: #64748b;
+}
+
+.faq-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.faq-chip {
+    border: 1.5px solid #cbd5e1;
+    background: #ffffff;
+    color: #334155;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.faq-chip:hover {
+    border-color: #4054F5;
+    color: #4054F5;
+    transform: translateY(-2px);
+}
+
+.faq-chip.is-active {
+    background: #4054F5;
+    border-color: #4054F5;
+    color: #ffffff;
+    box-shadow: 0 6px 16px -6px rgba(64, 84, 245, 0.7);
+}
+
+.faq-grid {
+    gap: 1rem 1.25rem;
+}
+
+.faq-card {
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.faq-card[hidden] {
+    display: none;
+}
+
+.faq-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 14px;
+    bottom: 14px;
+    width: 4px;
+    border-radius: 0 4px 4px 0;
+    background: linear-gradient(180deg, #4169E1, #FFD700);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.45s cubic-bezier(.22, .8, .24, 1);
+}
+
+.faq-card.is-open::before {
+    transform: scaleY(1);
+}
+
+.faq-card summary {
+    gap: 14px;
+}
+
+.faq-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.faq-cat {
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #4054F5;
+}
+
+.faq-q {
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.faq-card .faq-arrow {
+    flex: none;
+    width: 30px;
+    height: 30px;
+    margin-left: 0;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #eef1ff;
+    color: #4054F5;
+    transition: transform 0.45s cubic-bezier(.22, .8, .24, 1), background-color 0.3s ease, color 0.3s ease;
+}
+
+.faq-arrow svg {
+    width: 14px;
+    height: 14px;
+}
+
+.faq-card[open] .faq-arrow {
+    transform: none;
+}
+
+.faq-card.is-open .faq-arrow {
+    transform: rotate(180deg);
+    background: #4054F5;
+    color: #ffffff;
+}
+
+.faq-body {
+    overflow: hidden;
+}
+
+.faq-card .faq-body p {
+    font-size: 0.86rem;
+    line-height: 1.6;
+    animation: none;
+}
+
+@keyframes faqPop {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+html.js .faq-grid .faq-card.faq-pop {
+    animation: faqPop 0.5s cubic-bezier(.22, .8, .24, 1) calc(var(--i, 0) * 60ms) backwards;
+}
+
+.faq-help {
+    margin: 1.75rem 0 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.faq-help a {
+    color: #4054F5;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+body.dark-theme .faq-intro,
+body.dark-theme .faq-help {
+    color: #94a3b8;
+}
+
+body.dark-theme .faq-help a,
+body.dark-theme .faq-cat {
+    color: #8b9bff;
+}
+
+body.dark-theme .faq-chip {
+    background: #1e293b;
+    border-color: #334155;
+    color: #cbd5e1;
+}
+
+body.dark-theme .faq-chip:hover {
+    border-color: #8b9bff;
+    color: #8b9bff;
+}
+
+body.dark-theme .faq-chip.is-active {
+    background: #4054F5;
+    border-color: #4054F5;
+    color: #ffffff;
+}
+
+body.dark-theme .faq-card .faq-arrow {
+    background: #273449;
+    color: #a5b4fc;
+}
+
+body.dark-theme .faq-card.is-open .faq-arrow {
+    background: #4054F5;
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .faq-chip {
+        padding: 7px 13px;
+        font-size: 0.78rem;
+    }
+
+    .faq-card summary {
+        gap: 10px;
+    }
+}
+
+/* =========================================================
+   CERTIFICATE POP-UP
+   ========================================================= */
+.cert-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: clamp(12px, 3vw, 28px);
     box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.75);
-    opacity: 1 !important;
-    visibility: visible !important;
+    perspective: 1200px;
+    background: rgba(8, 12, 40, 0);
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+    visibility: hidden;
+    pointer-events: none;
+    transition: background-color 0.4s ease, backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease, visibility 0s linear 0.45s;
 }
 
-#cert-modal.open {
-    display: flex !important;
+.cert-modal.open {
+    background: rgba(8, 12, 40, 0.72);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    visibility: visible;
+    pointer-events: auto;
+    transition: background-color 0.4s ease, backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease, visibility 0s;
 }
 
-#cert-modal .cert-modal-content {
+.cert-modal-content {
     position: relative;
-    width: fit-content;
-    max-width: 100%;
-    max-height: 90vh;
-    background: #fff;
-    border-radius: 12px;
-    padding: 12px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    width: min(760px, 100%);
+    max-height: 100%;
+    background: #ffffff;
+    color: #0f172a;
+    border-radius: 18px;
+    border: 1.5px solid rgba(64, 84, 245, 0.25);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(46px) scale(0.92) rotateX(10deg);
+    transform-origin: 50% 100%;
+    transition: transform 0.3s ease-in, opacity 0.25s ease;
 }
 
-#cert-modal .cert-modal-img {
-    display: block;
-    width: 500px;
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-    border-radius: 8px;
+.cert-modal.open .cert-modal-content {
+    opacity: 1;
+    transform: none;
+    transition: transform 0.6s cubic-bezier(.2, .9, .25, 1.12), opacity 0.35s ease;
 }
-#cert-modal .cert-modal-close {
+
+.cert-modal-content::before {
+    content: "";
     position: absolute;
-    top: 8px;
-    right: 12px;
-    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4169E1, #FFD700);
+}
+
+.cert-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 20px 14px;
+}
+
+.cert-eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #4054F5;
+    margin-bottom: 4px;
+}
+
+.cert-head h3 {
+    margin: 0;
+    font-size: clamp(1rem, 2.6vw, 1.2rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: #0f172a;
+}
+
+#cert-modal .cert-modal-close {
+    position: static;
+    flex: none;
     width: 36px;
     height: 36px;
     border: none;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.65);
-    color: #fff;
-    font-size: 24px;
+    background: #f1f5f9;
+    color: #334155;
+    font-size: 22px;
     line-height: 1;
     cursor: pointer;
+    transition: transform 0.35s cubic-bezier(.22, .8, .24, 1), background-color 0.25s ease, color 0.25s ease;
 }
 
 #cert-modal .cert-modal-close:hover {
-    background: #c9a227;
+    background: #4054F5;
+    color: #ffffff;
+    transform: rotate(90deg);
+}
+
+.cert-frame {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    margin: 0 20px;
+    overflow: auto;
+    border-radius: 12px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+}
+
+#cert-modal .cert-modal-img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+}
+
+.cert-foot {
+    margin: 0;
+    padding: 12px 20px 18px;
+    text-align: center;
+    font-size: 0.78rem;
+    color: #64748b;
+}
+
+@keyframes certUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes certReveal {
+    from {
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+        transform: scale(1.04);
+    }
+
+    to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        transform: none;
+    }
+}
+
+@keyframes certSheen {
+    from {
+        transform: translateX(-120%);
+    }
+
+    to {
+        transform: translateX(120%);
+    }
+}
+
+.cert-modal.open .cert-head {
+    animation: certUp 0.5s cubic-bezier(.22, .8, .24, 1) 0.12s backwards;
+}
+
+.cert-modal.open .cert-frame {
+    animation: certUp 0.5s cubic-bezier(.22, .8, .24, 1) 0.2s backwards;
+}
+
+.cert-modal.open .cert-modal-img {
+    animation: certReveal 0.9s cubic-bezier(.22, .8, .24, 1) 0.3s backwards;
+}
+
+.cert-modal.open .cert-foot {
+    animation: certUp 0.5s cubic-bezier(.22, .8, .24, 1) 0.4s backwards;
+}
+
+.cert-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.55) 50%, transparent 65%);
+    transform: translateX(-120%);
+}
+
+.cert-modal.open .cert-frame::after {
+    animation: certSheen 1s ease 0.7s 1 both;
+}
+
+body.dark-theme .cert-modal-content {
+    background: #1e293b;
+    color: #f1f5f9;
+    border-color: rgba(139, 155, 255, 0.35);
+}
+
+body.dark-theme .cert-head h3 {
+    color: #f1f5f9;
+}
+
+body.dark-theme .cert-eyebrow {
+    color: #8b9bff;
+}
+
+body.dark-theme #cert-modal .cert-modal-close {
+    background: #334155;
+    color: #e2e8f0;
+}
+
+body.dark-theme .cert-frame {
+    background: #0f172a;
+    border-color: #334155;
+}
+
+body.dark-theme .cert-foot {
+    color: #94a3b8;
 }
